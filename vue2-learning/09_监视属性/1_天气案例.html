@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天气案例</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<!-- 注意：下面这行，不要写到head或者body标签内，否则还是会看到生产提示 -->
+<script>Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。</script>
+
+<body>
+  <!-- 
+   -->
+  <!-- 准备好一个容器 -->
+  <div id="root">
+    <h2>今天天气很{{info}}</h2>
+    <!-- 绑定事件时，@xxx="yyy" yyy可以写一些简单的语句 -->
+    <!-- <button @click="isHot=!isHot">切换天气</button> -->
+    <button @click="changeWeather">切换天气</button>
+  </div>
+
+  <script>
+    // 创建Vue实例
+    const vm = new Vue({
+      el: '#root',
+      data: {
+        isHot: true
+      },
+      computed: {
+        info() {
+          return this.isHot ? '炎热' : '凉爽';
+        }
+      },
+      methods: {
+        changeWeather() {
+          this.isHot = !this.isHot;
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
