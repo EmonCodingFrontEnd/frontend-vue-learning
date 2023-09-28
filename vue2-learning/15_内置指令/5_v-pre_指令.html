@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-pre指令</title>
+  <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<!-- 注意：下面这行，不要写到head或者body标签内，否则还是会看到生产提示 -->
+<script>Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。</script>
+
+<body>
+  <!-- 
+    v-pre指令：
+      1、跳过其所在节点的编译过程。
+      2、可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
+   -->
+  <!-- 准备好一个容器 -->
+  <div id="root">
+    <h1 v-pre>Vue其实很简单{{n}}我好像，并没有被编译啊！！！</h1>
+    <h1>当前的n值是：{{n}}</h1>
+    <button @click="n++">点我n+1</button>
+  </div>
+
+  <script>
+    // 创建Vue实例
+    const vm = new Vue({
+      el: '#root',
+      data: {
+        n: 1
+      }
+    });
+  </script>
+</body>
+
+</html>
