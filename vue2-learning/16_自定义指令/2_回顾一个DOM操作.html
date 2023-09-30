@@ -23,8 +23,10 @@
       input.value = 99;
       input.onclick = () => { alert(1) };
 
+      // 把元素插入到页面
       document.body.appendChild(input);
 
+      // 获取焦点的方法，应该在元素插入页面后执行
       input.focus();
       input.parentElement.style.backgroundColor = 'skyblue';
       console.log(input.parentElement);

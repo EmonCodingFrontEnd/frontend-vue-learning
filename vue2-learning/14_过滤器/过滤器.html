@@ -66,6 +66,7 @@
       // 局部过滤器
       filters: {
         timeFormater(value, str = 'YYYY年MM月DD日 HH:mm:ss') {
+          console.log('filters', this); // 注意此处的this是 window
           return dayjs(value).format(str);
         }
       }
