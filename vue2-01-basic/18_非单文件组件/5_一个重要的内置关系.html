@@ -45,6 +45,7 @@
         }
       },
     });
+    console.log(school.prototype.__proto__ === Vue.prototype);
 
     // 创建Vue实例
     const vm = new Vue({
@@ -68,6 +69,7 @@
 
     // 程序员通过显示原型属性操作原型对象，追加一个x属性，值为99
     Demo.prototype.x = 99;
+    console.log('demo', d, d.__proto__.x, d.x);
   </script>
 </body>
 
