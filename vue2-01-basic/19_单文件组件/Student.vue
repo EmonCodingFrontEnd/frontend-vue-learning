@@ -13,7 +13,7 @@ export default Vue.extend({
   data() {
     return {
       name: "张三",
-      aage: 18,
+      age: 18,
     };
   },
 });
