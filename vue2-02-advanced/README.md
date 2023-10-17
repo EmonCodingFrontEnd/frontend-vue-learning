@@ -27,6 +27,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # 笔记
 
+<span style="color:red;font-weight:bold;">建议通过VSCode直接打开“vue2-02-advanced“文件夹。</span>
+
 ## 脚手架文件结构
 
 ```shell
@@ -76,3 +78,63 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
    获取：this.$refs.xxx
 
+## 配置项props
+
+- 功能：让组件接收外部传过来的数据
+
+  - 传递数据：
+
+    ```vue
+    <Demo name="xxx"/>
+    ```
+
+  - 接收数据：
+
+    - 第一种方式（只接收）：
+
+    ```vue
+    props: ['name']
+    ```
+
+    - 第二种方式（限制类型）：
+
+    ```vue
+    props: {
+    	name: String
+    }
+    ```
+
+    - 第三种方式（限制类型、限制必要性、指定默认值）：
+
+    ```shell
+    props: {
+    	name: {
+    		type: String, // 类型
+    		required: true, // 必要性
+    		default: '老王' // 默认值
+    	}
+    }
+    ```
+
+- 备注：props是只读的，Vue底层会检测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据。
+
+## mixin（混入）
+
+- 功能：可以把多个组件共用的配置提取成一个混入对象。
+
+- 使用方式：
+
+  - 第一步：定义混入，例如：
+
+    ```vue
+    {
+    	data(){......},
+    	methods:{......},
+    	......
+    }
+    ```
+
+  - 第二步：使用混入，例如：
+
+    - 全局混入：Vue.mixin(xxx)
+    - 局部混入：mixins: ['xxx']
