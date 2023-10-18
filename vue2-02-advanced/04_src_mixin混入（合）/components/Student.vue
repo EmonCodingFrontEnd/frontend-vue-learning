@@ -1,5 +1,5 @@
 <template>
-  <div class="school">
+  <div>
     <h2 @click="showName">学生姓名：{{ name }}</h2>
     <h2>学生性别：{{ sex }}</h2>
   </div>

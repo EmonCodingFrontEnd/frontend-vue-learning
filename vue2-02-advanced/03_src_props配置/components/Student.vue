@@ -1,5 +1,5 @@
 <template>
-  <div class="school">
+  <div>
     <h1>{{ msg }}</h1>
     <h2>学生姓名：{{ name }}</h2>
     <h2>学生性别：{{ sex }}</h2>
