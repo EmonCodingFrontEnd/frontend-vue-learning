@@ -1,5 +1,7 @@
 <template>
   <li>
+    <!-- 如下代码v-model也可以实现功能，但不推荐；因为有点违反原则，修改了props属性 -->
+    <!-- <input type="checkbox" v-model="todo.done" /> -->
     <label>
       <input
         type="checkbox"
@@ -8,7 +10,7 @@
       />
       <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display: none">删除</button>
+    <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
   </li>
 </template>
 
@@ -16,11 +18,18 @@
 export default {
   name: "MyItem",
   // 声明接收todo对象
-  props: ["todo", "checkTodo"],
+  props: ["todo", "checkTodo", "deleteTodo"],
   methods: {
+    // 勾选/取消勾选
     handleCheck(id) {
       // 通知App组件将对应的todo对象的done值取反
       this.checkTodo(id);
+    },
+    // 删除
+    handleDelete(id) {
+      if (confirm("确定删除？")) {
+        this.deleteTodo(id);
+      }
     },
   },
 };
@@ -60,5 +69,13 @@ li:before {
 
 li:last-child {
   border-bottom: none;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+li:hover button {
+  display: block;
 }
 </style>

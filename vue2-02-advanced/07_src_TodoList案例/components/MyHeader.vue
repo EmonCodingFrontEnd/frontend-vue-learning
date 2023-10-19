@@ -3,6 +3,7 @@
     <input
       type="text"
       placeholder="请输入你的任务名称，按回车键确认"
+      v-model="title"
       @keyup.enter="add"
     />
   </div>
@@ -14,6 +15,12 @@ import { nanoid } from "nanoid";
 export default {
   name: "MyHeader",
   props: ["addTodo"],
+  data() {
+    return {
+      // 收集用户输入的title
+      title: "",
+    };
+  },
   methods: {
     add(e) {
       // 校验数据
