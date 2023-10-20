@@ -212,3 +212,41 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
+## 组件的自定义事件
+
+- 一种组件间通信的方式，适用于<span style="color:red;font-weight:bold;">子组件==>父组件</span>
+
+- 使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件（<span style="color:red;font-weight:bold;">事件的回调在A中</span>）。
+
+- 绑定自定义事件：
+
+  - 第一种方式，在父组件中：
+
+    ```vue
+    <Demo @atguigu="test"/> 
+    // 或者
+    <Demo v-on:atguigu="test"/>
+    ```
+
+  - 第二种方式，在父组件中：
+
+    ```vue
+    <Demo ref="demo"/>
+    ......
+    mounted() {
+    	this.$refs.xxx.$on('atguigu', this.test);
+    }
+    ```
+
+  - 若想让自定义事件只能触发一次，可以使用`once`修饰符，或`$once`方法。
+
+- 触发自定义事件：`this.$emit('atguigu',数据)`。
+
+- 解绑自定义事件：`this.$off('atguigu')`。
+
+- 组件上也可以绑定原生DOM事件，需要使用`native`修饰符。
+
+- 注意：通过`this.$refs.xxx.$on('atguigu',回调)`绑定自定义事件时，回调<span style="color:red;font-weight:bold;">要么配置在methods中，要么用箭头函数</span>，否则this指向会出问题！！！
+
+
+
