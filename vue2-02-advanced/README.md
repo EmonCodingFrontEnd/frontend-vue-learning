@@ -250,3 +250,37 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
+## 全局事件总线（GlobalEventBus）
+
+- 一种组件间通信的方式，适用于<span style="color:red;font-weight:bold;">任意组件间通信</span>。
+
+- 安装全局事件总线：
+
+  ```js
+  new Vue({
+  	......
+      beforeCreate() {
+  		Vue.prototype.$bus = this; // 安装全局事件总线，￥bus就是当前应用的vm
+  	},
+      ......
+  })
+  ```
+
+- 使用全局事件总线：
+
+  - 接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件<span style="color:red;font-weight:bold;">回调留在A组件自身</span>。
+
+    ```js
+    methods(){
+        demo(data){......}
+    }
+    ......
+    mounted(){
+        this.$bus.$on('xxx', this.dmeo);
+    }
+    ```
+
+  - 提供数据：`this.$but.$emit('xxx', 数据)`
+
+- 最好在beforeDestroy钩子中，用$off去解绑<span style="color:red;font-weight:bold;">当前组件所用到的</span>事件。
+
