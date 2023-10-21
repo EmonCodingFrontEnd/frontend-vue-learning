@@ -8,23 +8,9 @@
         :checked="todo.done"
         @change="handleCheck(todo.id)"
       />
-      <span v-show="!todo.isEdit">{{ todo.title }}</span>
-      <input
-        type="text"
-        v-show="todo.isEdit"
-        :value="todo.title"
-        @blur="handleBlur(todo, $event)"
-        ref="inputTitle"
-      />
+      <span>{{ todo.title }}</span>
     </label>
     <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
-    <button
-      v-show="!todo.isEdit"
-      class="btn btn-edit"
-      @click="handleEdit(todo)"
-    >
-      编辑
-    </button>
   </li>
 </template>
 
@@ -46,27 +32,6 @@ export default {
       if (confirm("确定删除？")) {
         pubsub.publish("deleteTodo", id);
       }
-    },
-    // 编辑
-    handleEdit(todo) {
-      const exist = todo.hasOwnProperty("isEdit");
-      // const exist2 = todo.isEdit !== undefined;
-      if (exist) {
-        todo.isEdit = true;
-      } else {
-        this.$set(todo, "isEdit", true);
-      }
-      this.$nextTick(function () {
-        this.$refs.inputTitle.focus();
-      });
-    },
-    // 失去焦点回调（真正执行修改逻辑）
-    handleBlur(todo, e) {
-      todo.isEdit = false;
-      if (!e.target.value.trim()) {
-        return alert("输入不能为空！");
-      }
-      this.$bus.$emit("updateTodo", todo.id, e.target.value);
     },
   },
 };

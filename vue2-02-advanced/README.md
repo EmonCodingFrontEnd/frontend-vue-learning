@@ -284,3 +284,36 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - 最好在beforeDestroy钩子中，用$off去解绑<span style="color:red;font-weight:bold;">当前组件所用到的</span>事件。
 
+
+
+## 消息订阅与发布
+
+- 一种组件间通信的方式，适用于<span style="color:red;font-weight:bold;">任意组件间通信</span>。
+
+- 使用步骤：
+
+  - 安装pubsub：`npm i pubsub-js`
+
+  - 引入：`import pubsub from 'pubsub-js'`
+
+  - 接收数据：A组件想接收数据，则在A组件中订阅消息，订阅的<span style="color:red;font-weight:bold;">回调留在A组件自身</span>。
+
+    ```js
+    methods(){
+        demo(data){......}
+    }
+    ......
+    mounted(){
+        this.pid = pubsub.subscribe('xxx', this.demo); // 订阅消息
+    }
+    ```
+
+  - 提供数据：`pubsub.subscribe('xxx', 数据);`
+
+  - 最好在beforeDestroy钩子中，用`pubsub.unsubscribe(this.pid)`去<span style="color:red;font-weight:bold;">取消订阅</span>。
+
+## nextTick
+
+- 语法：`this.$nextTick(回调函数)`
+- 作用：在下一次DOM更新结束后执行其指定的回调。
+- 什么时候用：当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行。
