@@ -352,4 +352,89 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
   - 备注：若有多个元素需要过度，则需要使用：`<transition-group>`，且每个元素都要指定`key`值。
 
-  
+- 利用三方动画库
+
+  - https://animate.style/
+
+  - 安装
+
+    ```shell
+    npm i animate.css
+    ```
+
+  - 引入
+
+    ```js
+    import "animate.css";
+    ```
+
+  - 示例
+
+    ```vue
+    <transition-group
+      name="animate__animated animate__bounce"
+      appear
+      enter-active-class="animate__swing"
+      leave-active-class="animate__backOutUp"
+    >
+      <h1 v-show="isShow" key="1">你好啊！</h1>
+      <h1 v-show="!isShow" key="2">尚硅谷！</h1>
+    </transition-group>
+    ```
+
+
+## Vue脚手架配置代理
+
+本示例用到的后端服务是`test_proxy_server`，执行`node server1`和`node server2`即可。
+
+- 方法一
+
+  - 在vue.config.js中添加如下配置：
+
+  ```js
+  // 开启代理服务器（方式一）
+  devServer: {
+      proxy: 'http://localhost:5000'
+  },
+  ```
+
+  - 说明：
+    - 优点：配置简单，请求资源时直接发给前端（8080）即可。
+    - 缺点：不能配置多个代理，不能灵活的控制请求是否走代理。
+    - 工作方式：若按照上述配置代理，当请求了前端不存在的资源时，那么该请求会转发给服务器（优先匹配前端资源）。
+
+- 方法二
+
+  - 编写vue.config.js配置具体代理规则
+
+    ```js
+    // 开启代理服务器（方式二）
+    devServer: {
+        proxy: {
+          '/api': {
+            target: 'http://localhost:5000', // 代理目标的基础路径
+            pathRewrite: { '^/api': '' }
+            // ws: true, // 用于支持websocket
+            // changeOrigin: true // 用于控制请求头中的host值
+          },
+          '/demo': {
+            target: 'http://localhost:5001', // 代理目标的基础路径
+            pathRewrite: { '^/demo': '' }
+            // ws: true, // 用于支持websocket
+            // changeOrigin: true // 用于控制请求头中的host值
+          },
+        }
+    }
+    ```
+
+  - 说明：
+
+    - 优点：可以配置多个代理，且可以灵活的控制请求是否走代理。
+    - 缺点：配置略微繁琐，请求资源时必须加前缀。
+
+
+
+​	
+
+
+

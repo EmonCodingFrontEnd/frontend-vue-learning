@@ -1,4 +1,5 @@
 <template>
+  <!-- <transition name="todo" appear> -->
   <li>
     <!-- 如下代码v-model也可以实现功能，但不推荐；因为有点违反原则，修改了props属性 -->
     <!-- <input type="checkbox" v-model="todo.done" /> -->
@@ -26,6 +27,7 @@
       编辑
     </button>
   </li>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -115,4 +117,21 @@ li:hover {
 li:hover button {
   display: block;
 }
+
+/* .todo-enter-active {
+  animation: atguigu 0.5s;
+}
+
+.todo-leave-active {
+  animation: atguigu 0.5s reverse;
+}
+
+@keyframes atguigu {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+} */
 </style>
