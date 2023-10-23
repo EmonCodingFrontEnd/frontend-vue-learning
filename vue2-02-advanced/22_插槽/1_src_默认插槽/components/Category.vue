@@ -1,19 +1,20 @@
 <template>
   <div class="category">
     <h3>{{ title }}</h3>
-    <slot :games="games">我是默认的一些内容</slot>
+    <!-- 定义一个插槽（挖个坑，等着组件的使用者进行填充） -->
+    <slot>我是一些默认值，当使用者没有传递具体结构时，我会出现</slot>
+    <!--     
+    <ul>
+      <li v-for="(item, idx) in listData" :key="idx">{{ item }}</li>
+    </ul> 
+    -->
   </div>
 </template>
 
 <script>
 export default {
   name: "Category",
-  props: ["title"],
-  data() {
-    return {
-      games: ["红色警戒", "穿越火线", "劲舞团", "超级玛丽"],
-    };
-  },
+  props: ["title", "listData"],
 };
 </script>
 
