@@ -4,7 +4,7 @@
 
 【Vue2+Vue3】
 
-https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=115&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=116&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 【谷粒商城】
 

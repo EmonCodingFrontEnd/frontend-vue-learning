@@ -6,7 +6,6 @@
     <input type="text" placeholder="请输入名字" v-model="name" />
     <button @click="add">添加</button>
     <button @click="addPersonWang">添加一个姓王的人</button>
-    <button @click="addPersonServer">添加一个人，名字随机</button>
     <ul>
       <li v-for="p in personList" :key="p.id">{{ p.name }}</li>
     </ul>
@@ -33,9 +32,6 @@ export default {
       const personObj = { id: nanoid(), name: this.name };
       this.$store.commit("personAbout/ADD_PERSON", personObj);
       this.name = "";
-    },
-    addPersonServer() {
-      this.$store.dispatch("personAbout/addPersonServer");
     },
   },
   computed: {
