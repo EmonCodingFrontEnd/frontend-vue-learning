@@ -29,6 +29,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 <span style="color:red;font-weight:bold;">建议通过VSCode直接打开“vue2-02-advanced“文件夹。</span>
 
+## 组件
+
+- 传统方式编写应用存在的问题：
+  - 依赖关系混乱，不好维护。
+  - 代码复用率不高。
+- 组件的定义
+  - 实现应用中局部功能代码和资源的集合
+
 ## 脚手架文件结构
 
 ```shell
@@ -585,6 +593,73 @@ new Vue({
     store
 })
 ````
+
+### 基本使用
+
+1. 初始化数据`state`、配置`actions`、配置`mutations`、操作文件`store.js`
+
+```js
+// 该文件用于创建Vuex中最为核心的store
+
+// 引入Vue
+import Vue from 'vue'
+// 引入Vuex
+import Vuex from 'vuex'
+// 使用插件
+Vue.use(Vuex)
+
+// 准备actions——用于响应组件中的动作
+const actions = {
+  jia: function (context, value) {
+    console.log('actions->jia被调用了');
+    context.commit('JIA', value);
+  },
+}
+// 准备mutations——用于操作数据(state)
+const mutations = {
+  JIA: function (mutations, value) {
+    console.log('actions->JIA被调用了');
+    state.sum += value;
+  }
+}
+// 准备state——用于存储数据
+const state = {
+  sum: 0, // 当前的和
+}
+
+// 创建并暴露store
+export default new Vuex.Store({
+  actions: actions,
+  mutations,
+  state,
+});
+```
+
+2. 组件中读取Vuex中的数据：`$store.state.sum`
+3. 组件中修改Vuex中的数据：`$store.dispatch('action中的方法名', 数据)`或者`$store.commit('mutations中的方法名','数据')`
+
+> 备注：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写`dispatch`，直接编写`commit`。
+
+### getters的使用
+
+1. 概念：当state中的数据需要经过加工后再使用时，可以使用getters加工。
+2. 在`store.js`中追加`getters`配置
+
+```js
+......
+const getters = {
+    bigSum(state) {
+        return state.sum * 10;
+    }
+}
+// 创建并暴露store
+export default new Vuex.Store({
+    ......,
+    getters
+})
+```
+
+3. 组件中读取数据：`$store.getters.bigSum`
 
 
 
