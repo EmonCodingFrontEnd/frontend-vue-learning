@@ -661,6 +661,54 @@ export default new Vuex.Store({
 
 3. 组件中读取数据：`$store.getters.bigSum`
 
+### 四个map方法的使用
+
+1. mapState方法：用于帮助我们映射`state`中的数据为计算属性。
+
+```js
+computed: {
+    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
+    ...mapState({ sum: "sum", school: "school", subject: "subject" }),
+    // 借助mapState生成计算属性，从state中读取数据。（数组写法）
+	...mapState(["sum", "school", "subject"]),
+}
+```
+
+2. mapGetters方法：用于帮助我们映射`getters`中的数据为计算属性
+
+```js
+computed: {
+    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
+    ...mapGetters({ bigSum: "bigSum" }),
+    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
+    ...mapGetters(["bigSum"]),
+}
+```
+
+3. mapActions方法：用于帮助我们生成与`actions`对话的方法，即：包含`$store.dispatch(xxx)`的函数
+
+```js
+methods: {
+    // 借助mapActions生成对应的方法，方法中会调用dispatch方法去联系actions。（对象写法）
+    ...mapActions({ incrementOdd: "jiaOdd", incrementWait: "jiaWait" }),
+	// 借助mapActions生成对应的方法，方法中会调用dispatch方法去联系actions。（数组写法）
+    ...mapActions(["jiaOdd", "jiaWait"]),
+}
+```
+
+4. mapMutations方法：用于帮助我们生成与`mutatioins`对话的方法，即：包含`$store.commit(xxx)`的函数
+
+```js
+methods: {
+    // 借助mapMutations生成对应的方法，方法中会调用commit方法去联系mutations。（对象写法）
+    ...mapMutations({ increment: "JIA", decrement: "JIAN" }),
+    // 借助mapMutations生成对应的方法，方法中会调用commit方法去联系mutations。（数组写法）
+    ...mapMutations(["JIA", "JIAN"]),
+}
+```
+
+> 备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递参数，否则参数是事件对象。
+
 
 
 

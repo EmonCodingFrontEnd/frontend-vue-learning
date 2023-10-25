@@ -32,18 +32,27 @@ const actions = {
 }
 // 准备mutations——用于操作数据(state)
 const mutations = {
-  JIA: function (mutations, value) {
-    console.log('actions->JIA被调用了');
+  JIA: function (state, value) {
+    console.log('mutations->JIA被调用了');
     state.sum += value;
   },
-  JIAN: function (mutations, value) {
-    console.log('actions->JIAN被调用了');
+  JIAN: function (state, value) {
+    console.log('mutations->JIAN被调用了');
     state.sum -= value;
+  },
+  ADD_PERSON: function (state, value) {
+    console.log('mutations->ADD_PERSON被调用了');
+    state.personList.unshift(value);
   },
 }
 // 准备state——用于存储数据
 const state = {
   sum: 0, // 当前的和
+  school: '尚硅谷',
+  subject: '前端',
+  personList: [
+    { id: '001', name: '张三' }
+  ]
 }
 // 准备getters——用于将state中的数据进行加工
 const getters = {
