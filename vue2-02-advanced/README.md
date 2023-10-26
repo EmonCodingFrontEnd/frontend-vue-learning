@@ -544,6 +544,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. 概念：专门在Vue中实现集中式状态（数据）管理的一个Vue插件，对Vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
 2. Github地址： https://github.com/vuejs/vuex
 
+- 安装
+
+```shell
+npm i vuex@3
+```
+
 ### 什么时候使用Vuex
 
 1. 多个组件依赖于同一状态
@@ -710,6 +716,181 @@ methods: {
 > 备注：mapActions与mapMutations使用时，若需要传递参数需要：在模板中绑定事件时传递参数，否则参数是事件对象。
 
 ### 模块化+命名空间
+
+1. 目的：让代码更好维护，让多种数据分类更加明确。
+2. 修改`store.js`
+
+```js
+const countAbout = {
+    namespaced: true, // 开启命名空间
+    state: {},
+    mutations: {},
+    actions: {},
+    getters: {}
+}
+              
+const personAbout = {
+    namespaced: true, // 开启命名空间
+    state: {},
+    mutations: {},
+    actions: {},
+    getters: {}              
+}
+
+const store = new Vuex.Store({
+	modules: {
+		countAbout: countAbout,
+		personAbout
+	}
+})
+```
+
+3. 开启命名空间后，组件中读取state数据：
+
+```javascript
+// 方式一：自己直接读取
+this.$store.state.personAbout.list
+// 方式二：借助mapState读取
+...mapState('countAbout', ['sum', 'school', 'subject'])
+```
+
+4. 开启命名空间后，组件中读取getters数据：
+
+```js
+// 方式一：自己直接读取
+this.$store.getters['personAbout/firstPersonName']
+// 方式二：借助mapGetters读取
+...mapGetters('countAbout', ['bigSum'])
+```
+
+5. 开启命名空间后，组件中调用dispatch
+
+```js
+// 方式一：自己直接dispatch
+this.$store.dispatch('personAbout/addPersonWang', person)
+// 方式二：借助mapActions
+...mapActions('countAbout', {incrementOdd:'jiaOdd', incrementWait:'jiaWait'})
+```
+
+6. 开启命名空间后，组件中调用commit
+
+```js
+// 方式一：自己直接commit
+this.$store.commit('personAbout/ADD_PERSON', person)
+// 方式二：
+...mapMutations('countAbout', {increment:'JIA', decrement: 'JIAN'})
+```
+
+
+
+## VueRouter
+
+### 相关理解
+
+#### vue-router的理解
+
+Vue的一个插件库，专门用来实现SPA应用。
+
+![image-20231026124653084](images/image-20231026124653084.png)
+
+#### 对SPA应用的理解
+
+1. 单页Web应用（single page web application，SPA）。
+2. 整个应用只有<span style="color:red;font-weight:bold;">一个完整的页面</span>。
+3. 点击页面中的导航链接<span style="color:red;font-weight:bold;">不会刷新</span>页面，只会做页面的<span style="color:red;font-weight:bold;">局部更新</span>。
+4. 数据需要通过ajax请求获取。
+
+- 安装
+
+```js
+npm i vue-router@3
+```
+
+#### 路由的理解
+
+- 什么是路由？
+  - 一个路由就是一组映射关系（key-value）
+  - key为路径，value可能是function或component
+- 路由分类
+  - 后端路由：
+    - 理解：value是functioin，用于处理客户端提交的请求。
+    - 工作过程：服务器接收到一个请求时，根据**请求路径**找到匹配的**函数**来处理请求，返回响应数据。
+  - 前端路由：
+    - 理解：value是component，用于展示页面内容。
+    - 工作过程：当浏览器的路径改变时，对应的组件就会显示。
+
+### 基本路由
+
+#### 路由：
+
+1. 理解：一个路由（route）就是一组映射关系（key-value），多个路由需要路由器（router）进行管理。
+2. 前端路由：key是路径，value是组件。
+
+#### 1.基本使用
+
+1. 安装vue-router，命令：`npm i vue-router`
+
+2. 应用插件：`Vue.use(VueRouter)`
+3. 编写router配置项：
+
+```js
+// 该文件专门用于创建整个应用的路由器
+
+// 引入Vue
+import Vue from 'vue'
+// 引入VueRouter
+import VueRouter from "vue-router";
+// 使用插件
+Vue.use(VueRouter)
+
+// 引入组件
+import About from '../components/About.vue'
+import Home from '../components/Home.vue'
+
+// 创建一个路由器
+export default new VueRouter({
+  routes: [
+    {
+      path: '/about',
+      component: About
+    },
+    {
+      path: '/home',
+      component: Home
+    }
+  ]
+})
+```
+
+4. 实现切换(active-class可配置高亮样式）
+
+```html
+<router-link class="list-group-item" active-class="active" to="/about">About</router-link>
+```
+
+5. 指定展示位置
+
+```html
+<router-view></router-view>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
