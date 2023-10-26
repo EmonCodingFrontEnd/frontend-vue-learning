@@ -23,13 +23,13 @@ export default new VueRouter({
     {
       path: '/home',
       component: Home,
-      children: [ // 通过children配置子级路由
+      children: [
         {
-          path: 'news', // 此处一定不要写 /news
+          path: 'news',
           component: News
         },
         {
-          path: 'message', // 此处一定不要写 /message
+          path: 'message',
           component: Message
         }
       ]
