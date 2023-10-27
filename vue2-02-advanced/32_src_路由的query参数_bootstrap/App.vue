@@ -11,10 +11,7 @@
           <!-- <a class="list-group-item active" href="./home.html">Home</a> -->
 
           <!-- Vue中借助router-link标签实现路由切换 -->
-          <router-link
-            class="list-group-item"
-            active-class="active"
-            :to="{ name: 'guanyu' }"
+          <router-link class="list-group-item" active-class="active" to="/about"
             >About</router-link
           >
           <router-link class="list-group-item" active-class="active" to="/home"
