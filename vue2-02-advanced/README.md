@@ -1021,7 +1021,7 @@ $route.query.title
 <!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
 <router-link
   :to="{
-    name: 'xiangqing', // 无法使用path参数
+    name: 'xiangqing', // 使用params是无法使用path参数
     params: {
       id: item.id,
       title: item.title,
@@ -1069,6 +1069,58 @@ $route.params.title
 1. 作用：控制路由跳转时操作浏览器历史记录的模式
 2. 浏览器的历史记录有两种写入方式：分别为`push`和`replace`，`push`是追加历史记录，`replace`是替换当前记录。路由跳转时默认为`push`
 3. 如何开启`replace`模式：`<router-link replace ......>News</router-link>`
+
+#### 9.编程式路由导航
+
+1. 作用：不借助`<router-link>`实现路由跳转，让路由跳转更加灵活。
+2. 具体编码：
+
+```js
+// $router的两个API
+this.$router.push({
+    name: "xiangqing", // 使用params是无法使用path参数
+    params: {
+        id: item.id,
+        title: item.title,
+    },
+});
+
+this.$router.replace({
+    name: "xiangqing", // 使用params是无法使用path参数
+    params: {
+        id: item.id,
+        title: item.title,
+    },
+});
+
+this.$router.back(); // 后退
+this.$router.forward(); // 前进
+this.$router.go(-2); // 可前进，可后退
+```
+
+#### 10.缓存路由组件
+
+1. 作用：让不展示的路由组件保持挂载，不被销毁。
+2. 具体编码
+
+```vue
+<keep-alive include="News">
+	<router-view></router-view>
+</keep-alive>
+```
+
+> include="News"中的News是组件的name；当不写include时所有的渲染到router-view的组件都被缓存。
+
+#### 11.两个新的生命周期钩子
+
+1. 作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
+2. 具体名字：
+   1. `actived`路由组件被激活时触发。
+   2. `deactived`路由组件失活时触发。
+
+
+
+
 
 
 

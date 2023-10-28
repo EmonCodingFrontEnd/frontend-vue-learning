@@ -60,12 +60,6 @@ export default {
       });
     },
   },
-  mounted() {
-    console.log("Message组件挂载完毕了");
-  },
-  beforeDestroy() {
-    console.log("Message组件即将被销毁");
-  },
 };
 </script>
 
