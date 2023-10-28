@@ -981,97 +981,102 @@ $route.query.title
    <router-link :to="{name: 'hello'}">跳转</router-link>
    ```
 
-   #### 6.路由的params参数
 
-   1. 配置路由，声明接收params参数
+#### 6.路由的params参数
 
-   ```json
-   {
-     path: '/home',
-     component: Home,
-     children: [ // 通过children配置子级路由
-       {
-         path: 'news', // 此处一定不要写 /news
-         component: News
-       },
-       {
-         path: 'message', // 此处一定不要写 /message
-         component: Message,
-         children: [
-           {
-             name: 'xiangqing',
-             path: 'detail/:id/:title',
-             component: Detail
-           },
-         ]
-       }
-     ]
-   }
-   ```
+1. 配置路由，声明接收params参数
 
-   2. 传递参数
+```json
+{
+  path: '/home',
+  component: Home,
+  children: [ // 通过children配置子级路由
+    {
+      path: 'news', // 此处一定不要写 /news
+      component: News
+    },
+    {
+      path: 'message', // 此处一定不要写 /message
+      component: Message,
+      children: [
+        {
+          name: 'xiangqing',
+          path: 'detail/:id/:title',
+          component: Detail
+        },
+      ]
+    }
+  ]
+}
+```
 
-   ```html
-   <!-- 跳转路由并携带params参数，to的字符串写法 -->
-   <router-link :to="`/home/message/detail/${item.id}/${item.title}`">
-     {{ item.title }}
-   </router-link>
-   
-   <!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
-   <router-link
-     :to="{
-       name: 'xiangqing', // 无法使用path参数
-       params: {
-         id: item.id,
-         title: item.title,
-       },
-     }"
-   >
-     {{ item.title }}
-   </router-link>
-   ```
+2. 传递参数
 
-   > 特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！
+```html
+<!-- 跳转路由并携带params参数，to的字符串写法 -->
+<router-link :to="`/home/message/detail/${item.id}/${item.title}`">
+  {{ item.title }}
+</router-link>
 
-   3. 接收参数
+<!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
+<router-link
+  :to="{
+    name: 'xiangqing', // 无法使用path参数
+    params: {
+      id: item.id,
+      title: item.title,
+    },
+  }"
+>
+  {{ item.title }}
+</router-link>
+```
 
-   ```js
-   $route.params.id
-   $route.params.title
-   ```
+> 特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！
 
-   #### 7.路由的props配置
+3. 接收参数
 
-   > 作用：让路由组件更方便的收到参数
+```js
+$route.params.id
+$route.params.title
+```
 
-   ```json
-   {
-     name: 'xiangqing',
-     path: 'detail/:id/:title',
-     component: Detail,
-     // props的第一种写法，值为对象，该对象中的所有key-value都会以props的形式传递给Detail组件
-     // props: { a: 1, b: 'hello' }
-     // props的第二种写法，值为布尔值，若布尔值为真，就会把该路由组件收到的所有params参数，以props的形式传递给Detail组件
-     props: true,
-     // 第三种写法，props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
-     props($route) {
-       return {
-         id: $route.params.id,
-         title: $route.params.title
-       }
-     }
-   },
-   ```
+#### 7.路由的props配置
 
-   
+> 作用：让路由组件更方便的收到参数
 
-   
+```json
+{
+  name: 'xiangqing',
+  path: 'detail/:id/:title',
+  component: Detail,
+  // props的第一种写法，值为对象，该对象中的所有key-value都会以props的形式传递给Detail组件
+  // props: { a: 1, b: 'hello' }
+  // props的第二种写法，值为布尔值，若布尔值为真，就会把该路由组件收到的所有params参数，以props的形式传递给Detail组件
+  props: true,
+  // 第三种写法，props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
+  props($route) {
+    return {
+      id: $route.params.id,
+      title: $route.params.title
+    }
+  }
+},
+```
 
-   
+#### 8.`<router-link>`的replace属性
 
-   
+1. 作用：控制路由跳转时操作浏览器历史记录的模式
+2. 浏览器的历史记录有两种写入方式：分别为`push`和`replace`，`push`是追加历史记录，`replace`是替换当前记录。路由跳转时默认为`push`
+3. 如何开启`replace`模式：`<router-link replace ......>News</router-link>`
 
-   
+
+
+
+
+
+
+
 
 
 

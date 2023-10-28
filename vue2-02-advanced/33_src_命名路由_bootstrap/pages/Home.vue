@@ -29,7 +29,7 @@
 export default {
   name: "Home",
   mounted() {
-    console.log("Home组件挂在完毕了");
+    console.log("Home组件挂载完毕了");
   },
   beforeDestroy() {
     console.log("Home组件即将被销毁");
