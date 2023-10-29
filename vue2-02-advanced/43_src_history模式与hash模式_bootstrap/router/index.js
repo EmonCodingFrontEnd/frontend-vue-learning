@@ -16,6 +16,7 @@ import Detail from '../pages/Detail.vue'
 
 // 创建一个路由器
 const router = new VueRouter({
+  mode: 'hash', // hash(default) | history
   routes: [
     {
       name: 'guanyu',

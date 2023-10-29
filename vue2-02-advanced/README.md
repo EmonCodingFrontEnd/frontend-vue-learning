@@ -1172,7 +1172,7 @@ router.afterEach((to, from) => {
 }
 ```
 
-#### 13. 组件内守卫
+5. 组件内路由守卫
 
 ```js
 // 通过路由规则，进入该组件时被调用
@@ -1192,6 +1192,34 @@ beforeRouteLeave(to, from, next) {
   next();
 },
 ```
+
+#### 13. 路由器的两种工作模式
+
+1. 对于一个url来说，什么是hash值？——#及其后面的内容就是hash值。
+2. hash值不会包含在HTTP请求中，即：hash值不会带给服务器。
+3. hash模式：
+   1. 地中中永远带着#号，不美观。
+   2. 若以后将地址通过第三方手机app分享，若app校验严格，则地址会被标记为不合法。
+   3. 兼容性较好。
+4. history模式：
+   1. 地址干净，美观。
+   2. 兼容性和hassh模式相比略差。
+   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
+
+
+
+## Vue UI组件库
+
+### 移动端常用UI组件库
+
+1. Vant https://youzan.github.io/vant
+2. Cube UI https://didi.github.io/cube-ui
+3. Mint UI http://mint-ui.github.io
+
+### PC端常用UI组件库
+
+1. Element UI https://element.eleme.cn
+2. IView UI https://www.iviewui.com
 
 
 
