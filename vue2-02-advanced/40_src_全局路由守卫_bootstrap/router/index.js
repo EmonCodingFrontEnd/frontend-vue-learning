@@ -22,7 +22,7 @@ const router = new VueRouter({
       path: '/about',
       component: About,
       meta: {
-        isAuth: true, title: '关于'
+        isAuth: false, title: '关于'
       }
     },
     {
@@ -40,18 +40,6 @@ const router = new VueRouter({
           meta: {
             isAuth: true, title: '新闻'
           },
-          // 独享路由守卫
-          /* beforeEnter(to, from, next) {
-            console.log("独享路由守卫");
-            if (to.meta.isAuth) {
-              if (localStorage.getItem('school') === 'atguigu') {
-                next();
-              }
-              else {
-                alert('学校名不对，无权限访问！');
-              }
-            }
-          } */
         },
         {
           name: 'xiaoxi',
@@ -88,7 +76,7 @@ const router = new VueRouter({
 })
 
 // 全局前置路由守卫——初始化的时候被调用、每次路由切换之前被调用
-/* router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   console.log('前置路由守卫');
   // 判断是否需要鉴权
   if (to.meta.isAuth) {
@@ -101,11 +89,11 @@ const router = new VueRouter({
   } else {
     next();
   }
-}); */
+});
 
 // 全局后置路由守卫——初始化的时候被调用、每次路由切换之后被调用
-/* router.afterEach((to, from) => {
+router.afterEach((to, from) => {
   console.log('后置路由守卫');
   document.title = to.meta.title || '尚硅谷系统';
-}); */
+});
 export default router;

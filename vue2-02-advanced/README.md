@@ -1118,6 +1118,83 @@ this.$router.go(-2); // 可前进，可后退
    1. `actived`路由组件被激活时触发。
    2. `deactived`路由组件失活时触发。
 
+#### 12. 路由守卫
+
+1. 作用；对路由进行权限控制
+2. 分类：全局守卫、独享守卫、组件内守卫。
+3. 全局守卫：
+
+```js
+// 全局前置路由守卫——初始化的时候被调用、每次路由切换之前被调用
+router.beforeEach((to, from, next) => {
+  console.log('前置路由守卫');
+  // 判断是否需要鉴权
+  if (to.meta.isAuth) {
+    if (localStorage.getItem('school') === 'atguigu') {
+      next();
+    }
+    else {
+      alert('学校名不对，无权限访问！');
+    }
+  } else {
+    next();
+  }
+});
+
+// 全局后置路由守卫——初始化的时候被调用、每次路由切换之后被调用
+router.afterEach((to, from) => {
+  console.log('后置路由守卫');
+  document.title = to.meta.title || '尚硅谷系统';
+});
+```
+
+4. 独享守卫
+
+```js
+{
+  name: 'xinwen',
+  path: 'news', // 此处一定不要写 /news
+  component: News,
+  meta: {
+    isAuth: true, title: '新闻'
+  },
+  // 独享路由守卫
+  beforeEnter(to, from, next) {
+    if (to.meta.isAuth) {
+      if (localStorage.getItem('school') === 'atguigu') {
+        next();
+      }
+      else {
+        alert('学校名不对，无权限访问！');
+      }
+    }
+  }
+}
+```
+
+#### 13. 组件内守卫
+
+```js
+// 通过路由规则，进入该组件时被调用
+beforeRouteEnter(to, from, next) {
+  console.log("About-beforeRouteEnter");
+  if (to.meta.isAuth) {
+    if (localStorage.getItem("school") === "atguigu") {
+      next();
+    } else {
+      alert("学校名不对，无权限访问！");
+    }
+  }
+},
+// 通过路由规则，离开该组件时被调用
+beforeRouteLeave(to, from, next) {
+  console.log("About-beforeRouteLeave");
+  next();
+},
+```
+
+
+
 
 
 

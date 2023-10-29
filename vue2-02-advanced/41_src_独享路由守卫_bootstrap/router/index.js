@@ -22,7 +22,7 @@ const router = new VueRouter({
       path: '/about',
       component: About,
       meta: {
-        isAuth: true, title: '关于'
+        isAuth: false, title: '关于'
       }
     },
     {
@@ -41,7 +41,7 @@ const router = new VueRouter({
             isAuth: true, title: '新闻'
           },
           // 独享路由守卫
-          /* beforeEnter(to, from, next) {
+          beforeEnter(to, from, next) {
             console.log("独享路由守卫");
             if (to.meta.isAuth) {
               if (localStorage.getItem('school') === 'atguigu') {
@@ -51,7 +51,7 @@ const router = new VueRouter({
                 alert('学校名不对，无权限访问！');
               }
             }
-          } */
+          }
         },
         {
           name: 'xiaoxi',
