@@ -10,7 +10,7 @@
         <!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
         <router-link
           :to="{
-            name: 'xiangqing', // 使用params是无法使用path参数
+            name: 'xiangqing', // 使用params时无法使用path参数
             params: {
               id: item.id,
               title: item.title,
@@ -43,7 +43,7 @@ export default {
   methods: {
     pushShow(item) {
       this.$router.push({
-        name: "xiangqing", // 使用params是无法使用path参数
+        name: "xiangqing", // 使用params时无法使用path参数
         params: {
           id: item.id,
           title: item.title,
@@ -52,7 +52,7 @@ export default {
     },
     replaceShow() {
       this.$router.replace({
-        name: "xiangqing", // 使用params是无法使用path参数
+        name: "xiangqing", // 使用params时无法使用path参数
         params: {
           id: item.id,
           title: item.title,

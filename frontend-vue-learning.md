@@ -10,7 +10,9 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=136&spm_id_from=pageDriver&vd_sou
 
 https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
+【尚品汇】
 
+https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=7&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 【Vue2中文官网】https://v2.cn.vuejs.org/v2/guide/
 

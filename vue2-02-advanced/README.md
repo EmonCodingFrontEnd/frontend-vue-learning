@@ -46,11 +46,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 |-- jsconfig.json		
 |-- node_modules		包安装目录
 |-- package-lock.json	包版本控制文件
-|-- package.json		应用宝配置文件
-|-- public
+|-- package.json		应用包配置文件
+|-- public				静态资源文件夹
 |   |-- favicon.ico		页签图标
 |   `-- index.html		主页面
-|-- src
+|-- src					项目源代码文件夹
 |   |-- App.vue			汇总所有组件
 |   |-- assets			存放静态资源
 |   |-- components		存放组件
@@ -828,7 +828,7 @@ npm i vue-router@3
 
 #### 1.基本使用
 
-1. 安装vue-router，命令：`npm i vue-router`
+1. 安装vue-router，命令：`npm i vue-router@3`
 
 2. 应用插件：`Vue.use(VueRouter)`
 3. 编写router配置项：
@@ -1021,7 +1021,7 @@ $route.query.title
 <!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
 <router-link
   :to="{
-    name: 'xiangqing', // 使用params是无法使用path参数
+    name: 'xiangqing', // 使用params时无法使用path参数
     params: {
       id: item.id,
       title: item.title,
@@ -1078,7 +1078,7 @@ $route.params.title
 ```js
 // $router的两个API
 this.$router.push({
-    name: "xiangqing", // 使用params是无法使用path参数
+    name: "xiangqing", // 使用params时无法使用path参数
     params: {
         id: item.id,
         title: item.title,
@@ -1086,7 +1086,7 @@ this.$router.push({
 });
 
 this.$router.replace({
-    name: "xiangqing", // 使用params是无法使用path参数
+    name: "xiangqing", // 使用params时无法使用path参数
     params: {
         id: item.id,
         title: item.title,
