@@ -39,7 +39,7 @@ const router = new VueRouter({
 
 // 全局路由守卫：前置守卫（在路由跳转之前执行）
 router.beforeEach(async (to, from, next) => {
-  console.log("--------------------------------beforeEach");
+  // console.log("--------------------------------beforeEach");
   /**
    * to:从哪一个路由
    * from:到哪一个路由
@@ -81,7 +81,6 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     // 用户未登录
-    console.log("--------------------------------啥？未登录？");
     if (to.path === '/trade' || to.path.indexOf("pay") !== -1 || to.path.indexOf("/center") !== -1) {
       try {
         // 未登录时想去而无法去的地方，存储于地址栏中【路由】

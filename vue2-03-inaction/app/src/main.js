@@ -6,13 +6,14 @@ import TypeNav from '@/components/TypeNav';
 import Carousel from '@/components/Carousel';
 import Pagination from '@/components/Pagination';
 // 按需引入ElementUI组件
-import { Button, MessageBox, Message } from 'element-ui';
+import { Button, MessageBox, Message, Input } from 'element-ui';
 
 // 第一个参数：全局组件的名字；第二个参数：哪一个组件
 Vue.component(TypeNav.name, TypeNav);
 Vue.component(Carousel.name, Carousel);
 Vue.component(Pagination.name, Pagination);
 Vue.component(Button.name, Button);
+Vue.component(Input.name, Input);
 // ElementUI注册组件的时候，还有一种写法，挂在原型上
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;
