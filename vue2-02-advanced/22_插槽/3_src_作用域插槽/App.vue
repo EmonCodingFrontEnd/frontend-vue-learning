@@ -1,7 +1,12 @@
 <template>
+  <!-- 
+    用法1：<template v-slot="{xxx}}}"></template>
+    用法2：<template scope="xxx"></template> 或者结构 <template scope="{xxx}"></template>
+    用法3：<template slot-scope="xxx"></template> 【推荐】
+  -->
   <div class="container">
     <Category title="游戏">
-      <template scope="{ games }">
+      <template v-slot="{ games }">
         <ul>
           <li v-for="(item, idx) in games" :key="idx">{{ item }}</li>
         </ul>

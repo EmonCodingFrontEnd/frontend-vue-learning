@@ -1,4 +1,10 @@
 <template>
+  <!-- 
+    用法1：<template v-slot:xxx></template>
+    用法2：<template slot="xxx"></template> 【推荐】
+    用法3：<template #xxx></template>
+    用法4：<标签 slot="xxx"></标签>
+  -->
   <div class="container">
     <Category title="美食" :listData="foods">
       <img

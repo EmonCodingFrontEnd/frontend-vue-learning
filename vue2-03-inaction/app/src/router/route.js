@@ -178,6 +178,13 @@ export default [
         },
       },
       {
+        path: 'slot',
+        component: () => import('@/pages/Communication/ScopeSlotTest/默认插槽与具名插槽代码'),
+        meta: {
+          show: false
+        },
+      },
+      {
         path: 'scope-slot',
         component: () => import('@/pages/Communication/ScopeSlotTest/ScopeSlotTest'),
         meta: {
