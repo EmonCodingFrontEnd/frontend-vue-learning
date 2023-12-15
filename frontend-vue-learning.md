@@ -8,7 +8,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=136&spm_id_from=pageDriver&vd_sou
 
 【尚品汇】
 
-https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=120&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=167&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 - 订单支付页面需要用有收货地址的账号（13700000000/111111）
 - 前端UI框架

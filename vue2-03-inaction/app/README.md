@@ -31,9 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 最新接口地址: http://gmall-h5-api.atguigu.cn
 
-后台文档swagger地址:
-http://39.98.123.211:8510/swagger-ui.html#/
-
 
 
 # 项目的其他配置
