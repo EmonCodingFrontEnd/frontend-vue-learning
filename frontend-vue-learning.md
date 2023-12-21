@@ -8,7 +8,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=136&spm_id_from=pageDriver&vd_sou
 
 【尚品汇】
 
-https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=167&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=191&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 - 订单支付页面需要用有收货地址的账号（13700000000/111111）
 - 前端UI框架
@@ -28,7 +28,15 @@ https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=167&spm_id_from=pageDriver&vd_sou
 
 https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
+【张天禹】Vue3：
 
+https://www.bilibili.com/video/BV1Za4y1r7KE/?spm_id_from=333.1007.tianma.2-2-5.click&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+
+
+
+【ECharts官网】https://echarts.apache.org/zh/index.html
+
+【MDN官网】https://developer.mozilla.org/zh-CN/
 
 【Vue2中文官网】https://v2.cn.vuejs.org/v2/guide/
 

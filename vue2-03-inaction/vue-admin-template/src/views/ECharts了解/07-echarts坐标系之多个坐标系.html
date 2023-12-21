@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 第一步：引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 注意：如果不采用类名的方式设置容器，tooltip会是一个大大的框子 */
+    div {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第二步：准备容器 -->
+  <div></div>
+  <!-- 第三步：基于准备好的DOM初始化echarts实例 -->
+  <script>
+    // 第三步：基于准备好的DOM初始化echarts实例
+    const dom = document.querySelector("div");
+    // 创建echarts实例
+    const mycharts = echarts.init(dom);
+    // 配置数据
+    mycharts.setOption({
+      // 标题
+      title: {
+        text: "双坐标系"
+      },
+      xAxis: {
+        data: ['游戏', '直播', '经济', '娱乐']
+      },
+      yAxis: [
+        {
+          axisLine: { show: true },
+          axisTick: { show: true }
+        },
+        {
+          axisLine: { show: true },
+          axisTick: { show: true }
+        }
+      ],
+      series: [
+        {
+          // 使用哪一个y坐标轴的索引值
+          yAxisIndex: 0,
+          name: "折线图",
+          type: 'line',
+          data: [10, 20, 30, 40]
+        },
+        {
+          yAxisIndex: 1,
+          name: "柱状图",
+          type: 'bar',
+          data: [6, 10, 90, 20]
+        },
+      ],
+    });
+  </script>
+</body>
+
+</html>

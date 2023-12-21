@@ -332,7 +332,7 @@ export default {
        * Object.assign()  ES6提供的方法，将一个或者多个源对象中所有可枚举的自有属性复制到目标对象，并返回修改后的目标对象。
        * 第一个参数是目标对象，后面的一个到多个是源对象。
        * this._data 组件实例的data对象
-       * this.$options.data() 当前组件的配置对象的data对象
+       * this.$options.data() 当前组件的配置对象的data函数
        */
       Object.assign(this._data, this.$options.data());
     },
@@ -349,6 +349,7 @@ export default {
       });
     },
   },
+  mounted() {},
 };
 </script>
 

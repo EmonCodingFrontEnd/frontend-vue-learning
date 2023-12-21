@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="600" height="400"></canvas>
+  <script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext('2d');
+    // 绘制矩形
+    ctx.fillRect(100, 200, 100, 200);
+    // ctx.clearRect(0, 0, 600, 400);// 清除整个画布
+    ctx.clearRect(100, 200, 50, 100); // 清除部分画布
+
+    // 设置文字大小
+    ctx.font = "20px 微软雅黑";
+    // 设置文字颜色
+    ctx.fillStyle = 'red';
+    // 绘制文字 text,x,y
+    ctx.fillText("数据可视化", 50, 20);  </script>
+</body>
+
+</html>

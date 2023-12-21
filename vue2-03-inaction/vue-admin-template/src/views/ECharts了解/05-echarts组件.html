@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 第一步：引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 注意：如果不采用类名的方式设置容器，tooltip会是一个大大的框子 */
+    div.box {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第二步：准备容器 -->
+  <div class="box"> </div>
+  <!-- 第三步：基于准备好的DOM初始化echarts实例 -->
+  <script>
+    // 第三步：基于准备好的DOM初始化echarts实例
+    const dom = document.querySelector("div.box");
+    // 创建echarts实例
+    const mycharts = echarts.init(dom);
+    // 配置数据
+    mycharts.setOption({
+      // 调整图表的布局
+      grid: { left: 30, right: 30 },
+      dataZoom: {},
+      // 标题
+      title: {
+        text: "echarts组件"
+      },
+      xAxis: {
+        data: ['游戏', '电影', '直播', '娱乐']
+      },
+      yAxis: {},
+      series: [
+        {
+          name: "柱状图",
+          type: 'bar',
+          data: [20, 30, 40, 50]
+        },
+        {
+          name: "折线图",
+          type: 'line',
+          data: [30, 40, 50, 60]
+        }
+      ],
+      // 提示组件
+      tooltip: {
+        // 提示框文字的颜色
+        textStyle: {
+          color: 'red',
+        },
+      },
+      // 系列切换图
+      legend: {
+        // 若不配置，自动提取series的包含name属性的图表
+        data: ["柱状图", "折线图"]
+      },
+      // 工具栏组件
+      toolbox: {
+        show: true,
+        feature: {
+          dataZoom: {
+            yAxisIndex: 'none'
+          },
+          // dataView: { readOnly: true },
+          magicType: { type: ['line', 'bar'] },
+          restore: {},
+          saveAsImage: {}
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

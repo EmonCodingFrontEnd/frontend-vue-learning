@@ -46,6 +46,7 @@
                 type="info"
                 icon="el-icon-info"
                 size="mini"
+                @click="lookAllSkuList(row)"
               ></HintButton>
               <!-- 气泡确认框 -->
               <el-popconfirm
@@ -78,11 +79,40 @@
       </div>
       <SpuForm
         v-show="scene === 1"
-        @changeScene="changeScene"
+        @changeScene="changeSceneBySpu"
         ref="spu"
       ></SpuForm>
-      <SkuForm v-show="scene === 2"></SkuForm>
+      <SkuForm
+        v-show="scene === 2"
+        @changeScene="changeSceneBySku"
+        ref="sku"
+      ></SkuForm>
     </el-card>
+    <el-dialog
+      :title="`${spuInfo.spuName}的Sku列表`"
+      :visible.sync="dialogTableVisible"
+      :before-close="closeSkuList"
+    >
+      <el-table
+        :data="skuInfoList"
+        border
+        v-loading="loading"
+        style="width: 100%"
+      >
+        <el-table-column
+          property="skuName"
+          label="名称"
+          width="350"
+        ></el-table-column>
+        <el-table-column property="price" label="价格"></el-table-column>
+        <el-table-column property="weight" label="重量"></el-table-column>
+        <el-table-column label="默认图片" width="200">
+          <template slot-scope="{ row }">
+            <img :src="row.skuDefaultImg" style="width: 100px" />
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-dialog>
   </div>
 </template>
 
@@ -104,6 +134,10 @@ export default {
       // 列表展示的数据
       spuList: [],
       scene: 0, // 0-展示Spu列表；1-添加Spu|修改Spu；2-添加Sku
+      dialogTableVisible: false, // 是否展示“查看所有Sku”对话框
+      spuInfo: {}, // “查看所有Sku”对话框依赖的Spu信息
+      skuInfoList: [], // “查看所有Sku”对应的Sku列表数据
+      loading: undefined,
     };
   },
   methods: {
@@ -155,19 +189,43 @@ export default {
       this.initSpuData({ category3Id });
     },
     // 添加Sku
-    addSku() {
+    addSku(spu) {
       this.scene = 2;
+      /**
+       * 如何初始化子组件数据？
+       * 如果使用v-if来控制子组件显示隐藏，则在子组件的mounted初始化数据！
+       * 如果使用v-show来控制子组件显示隐藏，则通过ref来获取子组件并初始化数据！
+       */
+      this.$refs.sku.initSkuData(this.category1Id, this.category2Id, spu);
     },
     // 修改Spu的回调
-    updateSpu(row) {
+    updateSpu(spu) {
       this.scene = 1;
-      this.initSpuData(row);
+      this.initSpuData(spu);
     },
-    // 查看Spu的全部Sku信息
-
+    // 查看当前Spu全部Sku列表
+    async lookAllSkuList(spu) {
+      this.loading = true;
+      this.dialogTableVisible = true;
+      this.spuInfo = spu;
+      // 获取Sku列表的数据
+      const result = await this.$API.spu.reqSkuList(spu.id);
+      if (result.code === 200) {
+        this.skuInfoList = result.data;
+      }
+      this.loading = false;
+    },
+    // 关闭对话框的回调
+    closeSkuList(done) {
+      this.skuInfoList = [];
+      done();
+    },
+    changeSceneBySku({ scene }) {
+      this.scene = scene;
+    },
     // 删除Spu
-    async deleteSpu(row) {
-      const result = await this.$API.spu.reqDeleteSpu(row.id);
+    async deleteSpu(spu) {
+      const result = await this.$API.spu.reqDeleteSpu(spu.id);
       if (result.code === 200) {
         this.$message({
           type: "success",
@@ -177,16 +235,16 @@ export default {
         this.getSpuList();
       }
     },
-    initSpuData(row) {
+    initSpuData(spu) {
       /**
        * 如何初始化子组件数据？
        * 如果使用v-if来控制子组件显示隐藏，则在子组件的mounted初始化数据！
        * 如果使用v-show来控制子组件显示隐藏，则通过ref来获取子组件并初始化数据！
        */
-      this.$refs.spu.initSpuData(row);
+      this.$refs.spu.initSpuData(spu);
     },
-    // 自定义事件回调（SpuForm）
-    changeScene({ scene, isAdd }) {
+    // 自定义事件回调（SpuForm） isAdd-是否新增Spu
+    changeSceneBySpu({ scene, isAdd }) {
       this.scene = scene;
       // 修改场景的情况：也有可能是添加Spu或者修改Spu成功后触发的
       if (isAdd) {
