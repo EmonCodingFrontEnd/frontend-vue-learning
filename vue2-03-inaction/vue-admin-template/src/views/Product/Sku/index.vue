@@ -113,7 +113,7 @@
       <el-row>
         <el-col :span="5">商品图片</el-col>
         <el-col :span="16">
-          <el-carousel height="550px" :autoplay="false" style="width: 550px">
+          <el-carousel height="550px" :autoplay="true" style="width: 550px">
             <el-carousel-item
               v-for="skuImage in skuInfoDetail.skuImageList"
               :key="skuImage.id"

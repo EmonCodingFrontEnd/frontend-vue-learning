@@ -2,8 +2,8 @@
   <div>
     <el-row :gutter="10">
       <el-col :span="6">
-        <el-card
-          ><Detail title="总销售额" count="¥ 126560">
+        <el-card>
+          <Detail title="总销售额" count="¥ 126560">
             <template slot="charts">
               <span
                 >周同比：&nbsp;&nbsp;56.67%
@@ -21,8 +21,9 @@
                     d="M512 0l341.333333 349.354667-273.066666-0.085334V1024H443.733333V349.269333H170.666667L512 0z"
                     fill="#1afa29"
                     p-id="11172"
-                  ></path></svg
-              ></span>
+                  ></path>
+                </svg>
+              </span>
               &nbsp;&nbsp;
               <span
                 >日同比：&nbsp;&nbsp;19.16
@@ -97,8 +98,9 @@
                     d="M512 0l341.333333 349.354667-273.066666-0.085334V1024H443.733333V349.269333H170.666667L512 0z"
                     fill="#1afa29"
                     p-id="11172"
-                  ></path></svg
-              ></span>
+                  ></path>
+                </svg>
+              </span>
               &nbsp;&nbsp;
               <span
                 >日同比：&nbsp;&nbsp;11%

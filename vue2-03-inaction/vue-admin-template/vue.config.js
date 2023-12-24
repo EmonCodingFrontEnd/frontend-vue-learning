@@ -36,6 +36,8 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    // 开启mock数据 备注：如果这里使用after，可以确保proxy也能正常运行；如果使用了before会导致proxy无法运行，一直超时
+    after: require('./mock/mock-server.js'),
     // 配置代理跨域
     proxy: {
       "dev-api-8170": {
@@ -46,7 +48,7 @@ module.exports = {
         target: 'http://39.98.123.211:8510/',
         pathRewrite: { '^/dev-api-8510': '' }
       }
-    }
+    },
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

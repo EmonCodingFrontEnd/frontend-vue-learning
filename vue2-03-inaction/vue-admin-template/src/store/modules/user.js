@@ -1,5 +1,8 @@
+// 引入登录|退出登录|获取用户信息的接口函数
 import { login, logout, getInfo } from '@/api/user'
+// 获取token|设置token|删除token
 import { getToken, setToken, removeToken } from '@/utils/auth'
+// 路由模块当中重置路由的方法
 import { resetRouter } from '@/router'
 
 const getDefaultState = () => {
@@ -12,16 +15,21 @@ const getDefaultState = () => {
 
 const state = getDefaultState()
 
+// 规范上、稳定性保证上：唯一能修改state的地方
 const mutations = {
+  // 重置state
   RESET_STATE: (state) => {
     Object.assign(state, getDefaultState())
   },
+  // 存储token
   SET_TOKEN: (state, token) => {
     state.token = token
   },
+  // 存储用户名
   SET_NAME: (state, name) => {
     state.name = name
   },
+  // 存储用户头像
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
   }

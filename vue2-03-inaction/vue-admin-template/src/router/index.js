@@ -1,8 +1,11 @@
+// 引入Vue|Vue-router
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 使用路由差距
 Vue.use(Router)
 
+// 引入最外层骨架的一级组件
 /* Layout */
 import Layout from '@/layout'
 
@@ -25,6 +28,7 @@ import Layout from '@/layout'
   }
  */
 
+// 路由的配置：为什么不同的用户登录我们的项目，菜单（路由）都是一样的？因为路由是写死的！！！
 /**
  * constantRoutes
  * a base page that does not have permission requirements
@@ -53,6 +57,41 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: 'dashboard' }
     }]
+  },
+  // 权限数据管理相关的路由
+  {
+    path: '/acl',
+    component: Layout,
+    name: 'Acl',
+    redirect: '/acl/user/list',
+    meta: { title: '权限管理', icon: 'el-icon-lock' },
+    children: [
+      {
+        path: 'user/list',
+        name: 'User',
+        component: () => import('@/views/acl/user/list'),
+        meta: { title: '用户管理', }
+      },
+      {
+        path: 'role/list',
+        name: 'Role',
+        component: () => import('@/views/acl/role/list'),
+        meta: { title: '角色管理', }
+      },
+      {
+        path: 'role/auth/:id',
+        name: 'RoleAuth',
+        component: () => import('@/views/acl/role/roleAuth'),
+        meta: { title: '角色授权', activeMenu: '/acl/role/list' },
+        hidden: true
+      },
+      {
+        path: 'permission/list',
+        name: 'Permission',
+        component: () => import('@/views/acl/permission/list'),
+        meta: { title: '菜单管理' },
+      },
+    ]
   },
 
   {
@@ -87,7 +126,6 @@ export const constantRoutes = [
       },
     ]
   },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
@@ -95,6 +133,7 @@ export const constantRoutes = [
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
+  // 因为注册的路由是“死的”，“活的”路由是根据不同用户（角色）可以展示不同的菜单。
   routes: constantRoutes
 })
 

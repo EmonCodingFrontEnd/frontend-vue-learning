@@ -60,5 +60,6 @@ export default {
 .card-footer {
   border-top: 1px solid #eee;
   padding-top: 10px;
+  height: 35px; /** 设置统一高度，避免某一个（比如运营活动效果）底部太高，导致整体高度不一致 */
 }
 </style>
