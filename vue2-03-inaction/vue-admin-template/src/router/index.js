@@ -58,6 +58,22 @@ export const constantRoutes = [
       meta: { title: '首页', icon: 'dashboard' }
     }]
   },
+
+  {
+    path: '/deepSelector',
+    component: Layout,
+    redirect: '/deepSelector',
+    children: [{
+      path: 'deepSelector',
+      name: 'DeepSelector',
+      component: () => import('@/views/DeepSelector深度选择器'),
+      meta: { title: '深度选择器', icon: 'el-icon-s-grid' }
+    }]
+  },
+]
+
+// 异步路由：不同的用户（角色）需要过滤筛选出的路由，称之为异步路由！！！
+export const asyncRoutes = [
   // 权限数据管理相关的路由
   {
     path: '/acl',
@@ -126,16 +142,23 @@ export const constantRoutes = [
       },
     ]
   },
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
 ]
 
-const createRouter = () => new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  // 因为注册的路由是“死的”，“活的”路由是根据不同用户（角色）可以展示不同的菜单。
-  routes: constantRoutes
-})
+// 任意路由：当路径出现错误的时候重定向到404
+export const anyRoutes = [
+  // 404 page must be placed at the end !!!
+  { path: '*', redirect: '/404', hidden: true },
+]
+
+
+const createRouter = () => {
+  return new Router({
+    // mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    // 因为注册的路由是“死的”，“活的”路由是根据不同用户（角色）可以展示不同的菜单。
+    routes: constantRoutes
+  });
+}
 
 const router = createRouter()
 

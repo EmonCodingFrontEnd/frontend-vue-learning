@@ -31,4 +31,25 @@ export default {
       data: permission
     })
   },
+
+  /* 
+  查看某个角色的权限列表
+  */
+  toAssign(roleId) {
+    return request({
+      url: `/admin/acl/permission/toAssign/${roleId}`,
+      method: 'get'
+    })
+  },
+
+  /* 
+  给某个角色授权
+  */
+  doAssign(roleId, permissionId) {
+    return request({
+      url: `/admin/acl/permission/doAssign`,
+      method: "post",
+      params: { roleId, permissionId }
+    })
+  }
 }

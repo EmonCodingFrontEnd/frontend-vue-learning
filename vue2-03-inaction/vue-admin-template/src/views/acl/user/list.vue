@@ -17,7 +17,7 @@
       <el-button type="primary" @click="showAddUser">添 加</el-button>
       <el-button
         type="danger"
-        @click="revomveUsers"
+        @click="removeUsers"
         :disabled="selectedIds.length === 0"
         >批量删除</el-button
       >
@@ -322,7 +322,7 @@ export default {
     /* 
     删除所有选中的用户
     */
-    revomveUsers() {
+    removeUsers() {
       this.$confirm("确定删除吗?")
         .then(async () => {
           await this.$API.user.removeUsers(this.selectedIds);
