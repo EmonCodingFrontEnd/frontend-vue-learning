@@ -27,6 +27,7 @@
  *    2）但在setup中不能访问到Vue2.x配置（data、methods、computed...）
  *    3）如果有重名，setup优先。
  * 2、setup不能是一个async函数，因为返回值不再是return的对象，而是一个promise，模板看不到return对象中的属性。
+ *    注意：后期也是可以返回Promise的，但需要异步组件和Suspense的配合
  */
 import { h } from "vue";
 export default {

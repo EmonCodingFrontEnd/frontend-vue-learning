@@ -28,9 +28,9 @@ export default {
     });
 
     // person = readonly(person);
-    // person = shallowReadonly(person);
+    person = shallowReadonly(person);
     // sum = readonly(sum);
-    // sum = shallowReadonly(sum);
+    sum = shallowReadonly(sum);
 
     // 返回一个对象（常用）
     return {

@@ -4,7 +4,7 @@
 
 【Vue2+Vue3】
 
-https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=160&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=167&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 【Vue Cli】https://cli.vuejs.org/zh/
 
@@ -241,6 +241,141 @@ npm run dev
 ![image-20231226221557936](images/image-20231226221557936.png)
 
 
+
+## 5、Composition API的优势
+
+### 5.1、Options API存在的问题
+
+传统的Options API中，新增或者修改一个需求，就需要分别在data、methods、computed、watch里修改。
+
+<div style="width:600px;height:370px;overflow:hidden;float:left">
+    <!--<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f84e4e2c02424d9a99862ade0a2e4114~tplv-k3u1fbpfcp-watermark.image" style="width:600px;float:left" />-->
+    <img src="images/OptionsAPI.image" style="width:600px;float:left" title="OptionsAPI"/>
+</div>
+<div style="width:300px;height:370px;overflow:hidden;float:left">
+    <!--<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ac7e20d1784887a826f6360768a368~tplv-k3u1fbpfcp-watermark.image" style="zoom:50%;width:560px;left" />-->
+    <img src="images/OptionsAPI2.image" style="zoom:50%;width:560px;left" title="OptionsAPI2"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 5.2、Composition API 的优势
+
+我们可以更加优雅的组织我们的代码，函数。让相关功能的代码更加有序的组织在一起。
+
+<div style="width:500px;height:340px;overflow:hidden;float:left">
+    <!--<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc0be8211fc54b6c941c036791ba4efe~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>-->
+    <img src="images/CompositionAPI.image" style="height:360px" title="CompositionAPI"/>
+</div>
+<div style="width:430px;height:340px;overflow:hidden;float:left">
+    <!--<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cc55165c0e34069a75fe36f8712eb80~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>-->
+    <img src="images/CompositionAPI2.image"style="height:360px" title="CompositionAPI2"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 6、新的组件
+
+### 6.1、Fragment
+
+- Vue2中：组件必须有一个根标签。
+- 在Vue3中组件可以没有根标签，内部会将多个标签包含在一个Fragment虚拟元素中。
+- 好处：减少标签层级，减小内存占用。
+
+### 6.2、其他的改变
+
+- data选项应始终被声明为一个函数。
+
+- 过度类名的更改：
+
+  - Vue2.x写法
+
+    ```css
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+    }
+    .v-leave,
+    .v-enter-to {
+      opacity: 1;
+    }
+    ```
+
+  - Vue3.x写法
+
+    ```css
+    .v-enter-from,
+    .v-leave-to {
+      opacity: 0;
+    }
+    
+    .v-leave-from,
+    .v-enter-to {
+      opacity: 1;
+    }
+    ```
+
+- <strong style="color:#DD5145">移除</strong>keyCode作为 v-on 的修饰符，同时也不再支持```config.keyCodes```
+
+- <strong style="color:#DD5145">移除</strong>```v-on.native```修饰符
+
+  - 父组件中绑定事件
+
+    ```vue
+    <my-component
+      v-on:close="handleComponentEvent"
+      v-on:click="handleNativeClickEvent"
+    />
+    ```
+
+  - 子组件中声明自定义事件
+
+    ```vue
+    <script>
+      export default {
+        emits: ['close']
+      }
+    </script>
+    ```
+
+- <strong style="color:#DD5145">移除</strong>过滤器（filter）
+
+  > 过滤器虽然这看起来很方便，但它需要一个自定义语法，打破大括号内表达式是 “只是 JavaScript” 的假设，这不仅有学习成本，而且有实现成本！建议用方法调用或计算属性去替换过滤器。
+
+- ...... 
+
+## 7、一个Vue3的实战项目
 
 【张天禹】Vue3：
 
