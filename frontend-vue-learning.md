@@ -133,9 +133,18 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
 
 ## 1.Vue3简介
 
-- 2020年9月18日，Vue.js发布3.0版本，代号：One Piece（海贼王）
-- 耗时2年多、[2600+次提交](https://github.com/vuejs/vue-next/graphs/commit-activity)、[30+个RFC](https://github.com/vuejs/rfcs/tree/master/active-rfcs)、[600+次PR](https://github.com/vuejs/vue-next/pulls?q=is%3Apr+is%3Amerged+-author%3Aapp%2Fdependabot-preview+)、[99位贡献者](https://github.com/vuejs/vue-next/graphs/contributors) 
-- github上的tags地址：https://github.com/vuejs/vue-next/releases/tag/v3.0.0
+- 2020年9月18日，`Vue.js`发布版`3.0`版本，代号：`One Piece`（n
+- 经历了：[4800+次提交](https://github.com/vuejs/core/commits/main)、[40+个RFC](https://github.com/vuejs/rfcs/tree/master/active-rfcs)、[600+次PR](https://github.com/vuejs/vue-next/pulls?q=is%3Apr+is%3Amerged+-author%3Aapp%2Fdependabot-preview+)、[300+贡献者](https://github.com/vuejs/core/graphs/contributors)
+- 官方发版地址：[Release v3.0.0 One Piece · vuejs/core](https://github.com/vuejs/core/releases/tag/v3.0.0)
+- 截止2023年10月，最新的公开版本为：`3.3.4`
+
+```bash
+$ npm view vue versions
+```
+
+<img src="images/image-20231229132023702.png" style="zoom:30%;" alt="image-20231229132023702"/>
+
+
 
 ## 2.Vue3带来了什么
 
@@ -187,6 +196,8 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
 
 官方文档：https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create
 
+> 备注：目前`vue-cli`已处于维护模式，官方推荐基于 `Vite` 创建项目。
+
 ```bash
 ## 查看@vue/cli版本，确保@vue/cli版本在4.5.0以上
 vue --version # 或者vue -V
@@ -199,32 +210,49 @@ cd vue3_test
 npm run serve
 ```
 
-### 3.2、使用Vite创建
+### 3.2、使用Vite创建（推荐）
 
 官方文档：https://vitejs.cn/
 
 - 什么是vite？—— 新一代前端构建工具。
 - 优势如下：
   - 开发环境中，无需打包操作，可快速的冷启动。
-  - 轻量快速的热重载（HMR）。
+  - 轻量快速的热重载（HMR），能实现极速的服务启动。
+  - 对 `TypeScript`、`JSX`、`CSS` 等支持开箱即用
   - 真正的按需编译，不再等待整个应用编译完成。
-
-- 传统构建与Vite构建对比图
+  
+- 传统构建（Webpack）与Vite构建对比图
 
 ![image-20231224210028428](images/image-20231224210028428.png)
 
 ![image-20231224210039538](images/image-20231224210039538.png)
 
+- 具体操作如下（点击查看[官方文档](https://cn.vuejs.org/guide/quick-start.html#creating-a-vue-application)）
+
+> 前提条件
+>
+> - 熟悉命令行
+> - 已安装 18.0 或更高版本的 [Node.js](https://nodejs.org/)
+
+- 简单快速版
+
 ```bash
 ## 创建工程
-npm init vite-app <project-name>
+npm init vite-app vue3_test_vite
 ## 进入工程目录
-cd <project-name>
+cd vue3_test_vite
 ## 安装依赖
 npm install
 ## 运行
 npm run dev
 ```
+
+- 很多选项版
+
+```bash
+```
+
+
 
 ## 4、Vue2 VS Vue3生命周期
 
