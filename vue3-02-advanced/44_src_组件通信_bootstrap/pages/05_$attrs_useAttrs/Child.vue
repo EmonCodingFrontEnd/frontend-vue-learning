@@ -1,12 +1,20 @@
 <template>
 	<div class="child">
 		<h3>子组件</h3>
-		<GrandChild v-bind="$attrs" />
+		<GrandChild v-bind="$attrs" :x="x * 10" />
 	</div>
 </template>
 
 <script setup lang="ts" name="Child">
 import GrandChild from './GrandChild.vue'
+
+// 引入useAttrs方法：获取组件标签身上属性与事件
+import { defineProps, useAttrs } from "vue";
+let props = defineProps(["x"]); // 取走x，剩下的留给$attrs
+console.log(props);
+
+let attrs = useAttrs();
+console.log(attrs);
 </script>
 
 <style scoped>

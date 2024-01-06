@@ -11,7 +11,7 @@
 import { inject } from "vue";
 
 let { money, updateMoney } = inject('moneyContext', { money: 0, updateMoney: (param: number) => { } })
-let car = inject('car', { brand: '未知', price: 0 })
+let car = inject('car', { brand: '未知', price: 0 }) // 注意：这里的car，是可以修改的，也会反映到父组件
 </script>
 
 <style scoped>

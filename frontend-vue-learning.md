@@ -71,6 +71,8 @@ $ vue inspect > output.js
   - Vue系列
     - PC端
       - ElementUI https://element.eleme.cn/#/zh-CN/
+      - Element Plus https://element-plus.org/zh-CN/#/zh-CN
+      - MorJS https://mor.eleme.cn/guides/introduction/getting-started/
     - Mobile端
       - Ant Design Vue https://www.antdv.com/docs/vue/introduce-cn/
       - Vant
@@ -119,11 +121,14 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
   - 适用场景：万能的
 - Vuex
   - 适用场景：万能的
+- ref：父组件获取子组件VC，获取子组件的响应式数据以及方法。
 - 插槽-slot
   - 适用场景：父子组件通信......（一般是结构）
   - 默认插槽
   - 具名插槽
   - 作用域插槽
+- $refs、$children、$parent
+- $attrs、$listeners
 
 
 

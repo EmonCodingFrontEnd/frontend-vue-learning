@@ -10,7 +10,7 @@
 import { ref } from "vue";
 // 数据
 let toy = ref('奥特曼')
-// 声明事件
+// 声明事件，注意：被defineEmits声明的才当作自定义事件，若不声明则是DOM事件
 const emit = defineEmits(['send-toy'])
 </script>
 
