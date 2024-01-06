@@ -35,8 +35,8 @@ export default {
   left: 0;
   right: 0;
   background-color: gray;
-  background-color: ;
 }
+
 .dialog {
   position: absolute;
   /* 参考定位元素 */

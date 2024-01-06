@@ -4,7 +4,11 @@
 
 【Vue2+Vue3】
 
-https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=167&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=168&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1【完结】
+
+【Vue3】
+
+https://www.bilibili.com/video/BV1Za4y1r7KE/?p=66&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 【Vue Cli】https://cli.vuejs.org/zh/
 
@@ -131,6 +135,8 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
 
 【Vue3中文官网】https://cn.vuejs.org/guide/introduction.html
 
+Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/breaking-changes/
+
 ## 1.Vue3简介
 
 - 2020年9月18日，`Vue.js`发布版`3.0`版本，代号：`One Piece`（n
@@ -205,6 +211,12 @@ vue --version # 或者vue -V
 npm i -g @vue/cli
 ## 创建
 vue create vue3_test
+
+##  随后选择3.x
+##  Choose a version of Vue.js that you want to start the project with (Use arrow keys)
+##  > 3.x
+##    2.x
+
 ## 启动
 cd vue3_test
 npm run serve
@@ -247,9 +259,29 @@ npm install
 npm run dev
 ```
 
-- 很多选项版
+- 很多选项版【推荐】
 
 ```bash
+$ npm create vue@latest
+
+Vue.js - The Progressive JavaScript Framework
+
+√ 请输入项目名称： ... vue3_test_vite
+√ 是否使用 TypeScript 语法？ ... 否 / 是
+√ 是否启用 JSX 支持？ ... 否 / 是
+√ 是否引入 Vue Router 进行单页面应用开发？ ... 否 / 是
+√ 是否引入 Pinia 用于状态管理？ ... 否 / 是
+√ 是否引入 Vitest 用于单元测试？ ... 否 / 是
+√ 是否要引入一款端到端（End to End）测试工具？ » 不需要
+√ 是否引入 ESLint 用于代码质量检测？ ... 否 / 是
+
+正在构建项目 C:\Job\JobResource\WebProjects\frontend-vue-learning\vue3-02-advanced\vue3_test_vite...
+
+项目构建完成，可执行以下命令：
+
+  cd vue3_test_vite
+  npm install
+  npm run dev
 ```
 
 
@@ -258,15 +290,52 @@ npm run dev
 
 【Vue2生命周期图示】https://v2.cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA
 
-![Vue 实例生命周期](images/lifecycle.png)
-
 【Vue3生命周期图示】https://cn.vuejs.org/guide/essentials/lifecycle.html
 
-![组件生命周期图示](images/lifecycle.DLmSwRQE.png)
 
-### Vue2与Vue3生命周期对比图
 
-![image-20231226221557936](images/image-20231226221557936.png)
+<div style="width:450px;height:740px;overflow-y: scroll;float:left;">
+	<img src="images/lifecycle.png" style="width:600px;float:left" alt="Vue2实例生命周期"/>
+</div>
+<div style="width:450px;height:720px;overflow:hidden;float:right;margin-top:20px;">
+	<img src="images/lifecycle.DLmSwRQE.png" style="width:600px;float:right" alt="Vue3实例生命周期"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,15 +470,24 @@ npm run dev
 
   > 过滤器虽然这看起来很方便，但它需要一个自定义语法，打破大括号内表达式是 “只是 JavaScript” 的假设，这不仅有学习成本，而且有实现成本！建议用方法调用或计算属性去替换过滤器。
 
-- ...... 
+- <span style="color:red;font-weight:bold;">v-model</span>指令在组件上的使用已经被重新设计，替换掉了<span style="color:red;font-weight:bold;">v-bind.sync</span>。
+
+- <span style="color:red;font-weight:bold;">v-if和v-for</span>在同一个元素身上使用时的优先级发生了变化。Vue2是v-for优先，Vue3总是v-if优先。
+
+- 移除了<span style="color:red;font-weight:bold;">$on、$off和$once实例方法</span>。
+
+- 移除了过滤器<span style="color:red;font-weight:bold;">filter</span>。
+
+- 移除了<span style="color:red;font-weight:bold;">$children</span>实例<span style="color:red;font-weight:bold;">propert</span>
+
+- ...更多参考：Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/breaking-changes/
 
 ## 7、一个Vue3的实战项目
 
-【张天禹】Vue3：
-
-https://www.bilibili.com/video/BV1Za4y1r7KE/?spm_id_from=333.1007.tianma.2-2-5.click&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
-
-
-
 【aswsomejs】https://awesomejs.dev/
 
+## 8、Pinia（Vuex替代品）
+
+<span style="color:red;font-weight:bold;">集中式状态管理库：</span>
+
+https://pinia.web3doc.top/

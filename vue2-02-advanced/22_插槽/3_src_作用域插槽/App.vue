@@ -1,8 +1,8 @@
 <template>
   <!-- 
-    用法1：<template v-slot="{xxx}}}"></template>
+    用法1：<template v-slot="{xxx}"></template> 【V3推荐】
     用法2：<template scope="xxx"></template> 或者结构 <template scope="{xxx}"></template>
-    用法3：<template slot-scope="xxx"></template> 【推荐】
+    用法3：<template slot-scope="xxx"></template> 【V2推荐】
   -->
   <div class="container">
     <Category title="游戏">
@@ -15,11 +15,7 @@
     <Category title="游戏">
       <template scope="atguigu">
         <ol>
-          <li
-            style="color: red"
-            v-for="(item, idx) in atguigu.games"
-            :key="idx"
-          >
+          <li style="color: red" v-for="(item, idx) in atguigu.games" :key="idx">
             {{ item }}
           </li>
         </ol>
@@ -50,6 +46,7 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+
 h4 {
   text-align: center;
 }

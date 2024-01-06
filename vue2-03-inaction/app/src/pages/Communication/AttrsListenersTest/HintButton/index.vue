@@ -31,4 +31,7 @@ export default {
 </script>
 
 <style scoped>
+a {
+  overflow-y: scroll;
+}
 </style>

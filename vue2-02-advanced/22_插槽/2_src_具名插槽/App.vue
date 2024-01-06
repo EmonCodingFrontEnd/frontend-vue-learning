@@ -1,17 +1,13 @@
 <template>
   <!-- 
-    用法1：<template v-slot:xxx></template>
-    用法2：<template slot="xxx"></template> 【推荐】
+    用法1：<template v-slot:xxx></template> 【V3推荐】
+    用法2：<template slot="xxx"></template>  【V2推荐】
     用法3：<template #xxx></template>
     用法4：<标签 slot="xxx"></标签>
   -->
   <div class="container">
     <Category title="美食" :listData="foods">
-      <img
-        slot="center"
-        src="https://s3.ax1x.com/2021/01/16/srJlq0.jpg"
-        alt=""
-      />
+      <img slot="center" src="https://s3.ax1x.com/2021/01/16/srJlq0.jpg" alt="" />
       <a slot="footer" href="http://www.atguigu.com">更多美食</a>
     </Category>
     <Category title="游戏" :listData="games">
@@ -24,11 +20,7 @@
       </div>
     </Category>
     <Category title="电影" :listData="films">
-      <video
-        slot="center"
-        controls
-        src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-      ></video>
+      <video slot="center" controls src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
       <!-- <template slot="footer"> -->
       <template v-slot:footer>
         <div class="foot">
@@ -64,6 +56,7 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+
 h4 {
   text-align: center;
 }
