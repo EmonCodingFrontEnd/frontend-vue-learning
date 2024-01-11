@@ -8,13 +8,54 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=168&spm_id_from=pageDriver&vd_sou
 
 【Vue3】
 
-https://www.bilibili.com/video/BV1Za4y1r7KE/?p=66&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+https://www.bilibili.com/video/BV1Za4y1r7KE?p=71&vd_source=b850b3a29a70c8eb888ce7dff776a5d1【完结】
 
 【Vue Cli】https://cli.vuejs.org/zh/
 
 【Vue Router】https://router.vuejs.org/zh/
 
 【Vuex】https://vuex.vuejs.org/zh/
+
+【Vite】https://cn.vitejs.dev/
+
+【ECharts官网】https://echarts.apache.org/zh/index.html
+
+【MDN官网】https://developer.mozilla.org/zh-CN/
+
+【Vue2中文官网】https://v2.cn.vuejs.org/v2/guide/
+
+【Vue2脚手架】https://cli.vuejs.org/zh/
+
+【谷粒商城】
+
+https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+
+# 前端框架
+
+- 前端UI框架
+  - React系列
+    - PC端
+      - Ant Design https://ant.design/index-cn
+    - Mobile端
+      - Ant Design Mobile https://mobile.ant.design/zh
+  - Vue系列
+    - PC端
+      - ElementUI https://element.eleme.cn/#/zh-CN/
+      - Element Plus https://element-plus.org/zh-CN/#/zh-CN
+      - MorJS https://mor.eleme.cn/guides/introduction/getting-started/
+    - Mobile端
+      - Ant Design Vue https://www.antdv.com/docs/vue/introduce-cn/
+      - Vant
+
+# Vue2实战项目
+
+【尚品汇】https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=200&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1 【完结】
+
+- 订单支付页面需要用有收货地址的账号（13700000000/111111）
+
+# Vue3实战项目
+
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=43&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 # 创建Vue2工程
 
@@ -57,47 +98,13 @@ $ npm run serve
 $ vue inspect > output.js
 ```
 
-## 2、一个Vue2的一个实战项目
-
-【尚品汇】https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=200&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1 【完结】
-
-- 订单支付页面需要用有收货地址的账号（13700000000/111111）
-- 前端UI框架
-  - React系列
-    - PC端
-      - Ant Design https://ant.design/index-cn
-    - Mobile端
-      - Ant Design Mobile https://mobile.ant.design/zh
-  - Vue系列
-    - PC端
-      - ElementUI https://element.eleme.cn/#/zh-CN/
-      - Element Plus https://element-plus.org/zh-CN/#/zh-CN
-      - MorJS https://mor.eleme.cn/guides/introduction/getting-started/
-    - Mobile端
-      - Ant Design Vue https://www.antdv.com/docs/vue/introduce-cn/
-      - Vant
-
-## 3、小贴士
+## 2、小贴士
 
 - 地址栏中，经常出现#，是什么作用，能不能去掉#？
 - hash模式：地址栏包含#符号，#以后的不被后台获取
 - history模式：具有对url历史记录进行修改的功能
 - 在微信支付、分享url作为参数传递时，#不能满足需求
 - history需要后台配置，处理404的问题。
-
-
-
-【谷粒商城】
-
-https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
-
-【ECharts官网】https://echarts.apache.org/zh/index.html
-
-【MDN官网】https://developer.mozilla.org/zh-CN/
-
-【Vue2中文官网】https://v2.cn.vuejs.org/v2/guide/
-
-【Vue2脚手架】https://cli.vuejs.org/zh/
 
 组件通信方式：
 
@@ -495,9 +502,9 @@ Vue.js - The Progressive JavaScript Framework
 
 https://pinia.web3doc.top/
 
-## 9、基于Vite打造Vue3+TS前端开发模板项目
+# 基于Vite打造Vue3+TS前端开发模板项目
 
-## 9.0、技术选型
+## 1、技术选型
 
 - Vue3+组合式API
 - Vite构建工具
@@ -508,7 +515,14 @@ https://pinia.web3doc.top/
 - Axios
 - ECharts
 
-### 9.1、创建项目
+## 2、项目初始化
+
+### 2.1、环境准备
+
+- node v16.14.2+
+- pnpm 8.0.0+
+
+### 2.2、创建项目
 
 ```bash
 $ pnpm create vite
@@ -537,7 +551,38 @@ Done. Now run:
 },
 ```
 
-### 9.2、配置ESLint
+### 2.3、配置vite-plugin-vue-setup-extend
+
+扩展setup插件，支持在script标签中使用name属性
+
+- 安装插件
+
+```bash
+$ pnpm i -D vite-plugin-vue-setup-extend
+```
+
+- 配置到`vite.config.ts`
+
+```ts
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+export default defineConfig({
+  plugins: [
+    VueSetupExtend(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
+```
+
+<span style="color:red;font-weight:bold;">注意：在使用0.4.0及之前版本时，若script标签没有内容，即使给script标签添加上name属性，其在vue-devtools内也不会生效！！！解决办法：在script标签增加内容，比如：加一行注释。</span>
+
+## 3、项目配置
+
+### 3.1、配置ESLint
 
 - 安装ESLint
 
@@ -737,7 +782,7 @@ package.json新增两个运行脚本：
 }
 ```
 
-### 9.3、配置prettier
+### 3.2、配置prettier
 
 有了ESLint，为什么还要有Prettier？
 
@@ -781,7 +826,7 @@ $ pnpm i -D eslint-plugin-prettier prettier eslint-config-prettier
 
 <span style="color:red;font-weight:bold;">通过pnpm run lint 去检测语法，如果不出现不规范格式，通过pnpm run fix修改。</span>
 
-### 9.4、配置stylelint
+### 3.3、配置stylelint
 
 [stylelint](https://stylelint.io/)为css的lint工具。可格式化css代码，检查css语法错误与不合理的写法，指定css书写顺序等。
 
@@ -874,7 +919,7 @@ module.exports = {
 
 <span style="color:red;font-weight:bold;">当我们运行pnpm run format的时候，会把代码直接格式化。</span>
 
-## 9.5、配置husky
+### 3.4、配置husky
 
 在上面我们已经集成好了我们代码校验工具，但是需要每次手动的去执行命令才会格式化我们的代码。如果有人没有格式化就提交了远程仓库中，那这个规范就没什么用。所以我们需要强制让开发人员按照代码规范来提交。
 
@@ -905,7 +950,7 @@ pnpm run format
 
 当我们对代码进行commit操作的时候，就会执行命令，对代码进行格式化，然后再提交。
 
-## 9.6、配置commitlint
+### 3.5、配置commitlint
 
 对于我们的commit信息，也是有统一规范的，不能随便写,要让每个人都按照统一的标准来执行，我们可以利用**commitlint**来实现。
 
@@ -991,13 +1036,13 @@ pnpm commitlint
 
 当我们 commit 提交信息时，就不能再随意写了，必须是 git commit -m 'fix: xxx' 符合类型的才可以，<span style="color:red;font-weight:bold;">需要注意的是类型的后面需要用英文的 :，并且冒号后面是需要空一格的，这个是不能省略的</span>
 
-## 9.7、强制使用pnpm包管理工具
+### 3.6、强制使用pnpm包管理工具
 
 团队开发项目的时候，需要统一包管理器工具,因为不同包管理器工具下载同一个依赖,可能版本不一样,
 
 导致项目出现bug问题,因此包管理器工具需要统一管理！！！
 
-在根目录创建`scritps/preinstall.js`文件，添加下面的内容：
+在根目录创建`scripts/preinstall.js`文件，添加下面的内容：
 
 ```js
 if (!/pnpm/.test(process.env.npm_execpath || '')) {
@@ -1018,3 +1063,495 @@ if (!/pnpm/.test(process.env.npm_execpath || '')) {
 ```
 
 <span style="color:red;font-weight:bold;">当我们使用npm或者yarn来安装包的时候，就会报错了。原理就是在install的时候会触发preinstall（npm提供的生命周期钩子）这个文件里面的代码。</span>
+
+## 4、项目集成
+
+### 4.1、集成element-plus
+
+```bash
+$ pnpm i element-plus @element-plus/icons-vue
+```
+
+- element-plus全局组件类型声明
+
+如果您使用 Volar，请在 `tsconfig.json` 中通过 `compilerOptions.type` 指定全局组件类型。
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["element-plus/global"]
+  }
+}
+```
+
+### 4.2、src别名的配置
+
+在开发项目的时候文件与文件关系可能很复杂，因此我们需要给src文件夹配置一个别名！！！
+
+- vite.config.ts
+
+```ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      "@": path.resolve("./src") // 相对路径别名配置，使用 @ 代替 src
+    }
+  }
+})
+
+```
+
+- tsconfig.json 编译配置
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
+    "paths": { // 路径映射，相对于baseUrl
+      "@/*": ["src/*"]
+    }
+  },
+}
+```
+
+## 5、环境变量的配置
+
+<span style="color:red;font-weight:bold;">项目开发过程中，至少会经历开发环境、测试环境和生产环境(即正式环境)三个阶段。不同阶段请求的状态(如接口地址等)不尽相同，若手动切换接口地址是相当繁琐且易出错的。于是环境遍历配置的需求就应运而生，我们只需做简单的配置，把环境状态切换的工作交给代码</span>。
+
+### 5.1、环境划分
+
+- 开发环境（development）
+
+顾名思义，开发使用的环境，每位开发人员在自己的dev分支上干活，开发到一定程度，同事会合并代码，进行联调。
+
+- 测试环境（testing）
+
+测试同事干活的环境啦，一般会由测试同事自己来部署，然后在此环境进行测试。
+
+- 生产环境（production）
+
+生产环境是指正式提供对外服务的，一般会关掉错误报告，打开错误日志。(正式提供给客户使用的环境。）
+
+注意:一般情况下，一个环境对应一台服务器,也有的公司开发与测试环境是一台服务器！！！
+
+### 5.2、环境配置
+
+项目根目录分别添加 开发、生产和测试环境的文件！
+
+```tex
+.env.development
+.env.production
+.env.test
+```
+
+- `.env.development`
+
+```bash
+# 变量必须以 VITE_ 为前缀才能暴露给外部读取
+NODE_ENV = 'development'
+VITE_APP_TITLE = '硅谷甄选运营平台'
+VITE_APP_BASE_API = '/dev-api'
+```
+
+- `.env.production`
+
+```bash
+# 变量必须以 VITE_ 为前缀才能暴露给外部读取
+NODE_ENV = 'production'
+VITE_APP_TITLE = '硅谷甄选运营平台'
+VITE_APP_BASE_API = '/prod-api'
+```
+
+- `.env.test`
+
+```bash
+# 变量必须以 VITE_ 为前缀才能暴露给外部读取
+NODE_ENV = 'test'
+VITE_APP_TITLE = '硅谷甄选运营平台'
+VITE_APP_BASE_API = '/test-api'
+```
+
+配置运行命令：
+
+- `package.json`
+
+```json
+ "scripts": {
+    "dev": "vite --open",
+    "build:test": "vue-tsc && vite build --mode test",
+    "build:pro": "vue-tsc && vite build --mode production",
+  },
+```
+
+通过import.meta.env获取环境变量
+
+## 6、SVG图标配置
+
+在开发项目的时候经常会用到svg矢量图,而且我们使用SVG以后，页面上加载的不再是图片资源,
+
+这对页面性能来说是个很大的提升，而且我们SVG文件比img要小的很多，放在项目中几乎不占用资源。
+
+- 安装SVG依赖插件
+
+```bash
+$ pnpm i -D vite-plugin-svg-icons
+```
+
+- 在`vite.config.ts`中配置差距
+
+```ts
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+export default () => {
+  return {
+    plugins: [
+      createSvgIconsPlugin({
+        // Specify the icon folder to be cached
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        // Specify symbolId format
+        symbolId: 'icon-[dir]-[name]',
+      }),
+    ],
+  }
+}
+```
+
+- `main.ts`入口文件导入
+
+```ts
+import 'virtual:svg-icons-register'
+```
+
+- 基本用法示例：
+
+```vue
+<template>
+  <div>
+    <h1>SVG测试</h1>
+    <!-- 测试SVG图标使用 -->
+    <!-- svg:图标外层容器节点，内部需要与use标签结合使用 -->
+    <svg style="width:30px;height:30px">
+      <!-- 
+        xlink:href执行用哪一个图标，属性值务必 #icon-图标名字
+        use标签fill属性可以设置图标的颜色
+       -->
+      <use xlink:href="#icon-phone" fill="green"></use>
+    </svg>
+  </div>
+</template>
+```
+
+## 7、集成sass
+
+我们目前在组件内部已经可以使用scss样式,因为在配置styleLint工具的时候，项目当中已经安装过sass sass-loader,因此我们在组件内可以使用scss语法！！！需要加上lang="scss"：
+
+```vue
+<style scoped lang="scss"></style>
+```
+
+接下来我们为项目添加一些全局的样式
+
+- 安装reset.scss
+
+```bash
+$ pnpm i reset.scss
+```
+
+- 在src/styles目录下创建一个index.scss文件，当然项目中需要用到清除默认样式，因此在index.scss引入reset.scss
+
+```scss
+@import 'reset.scss'
+```
+
+在入口文件引入
+
+```ts
+import '@/styles/index.scss'
+```
+
+但是你会发现在src/styles/index.scss全局样式文件中没有办法使用$变量.因此需要给项目中引入全局变量$.
+
+在style/variable.scss创建一个variable.scss文件！
+
+在vite.config.ts文件配置如下:
+
+```ts
+export default defineConfig({
+  // scss全局遍历配置
+  css: {
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/styles/variable.scss";',
+      },
+    },
+  }
+}
+```
+
+<span style="color:red;font-weight:bold;">@import "./src/styles/variable.scss";后面的`;`不要忘记，不然会报错</span>！
+
+配置完毕你会发现scss提供这些全局变量可以在组件样式中使用了！！！
+
+## 8、mock数据
+
+- 安装依赖：
+
+```bash
+$ pnpm i -D vite-plugin-mock@2.9.8 mockjs
+```
+
+- `vite.config.js`配置文件启用插件
+
+```js
+import { viteMockServe } from 'vite-plugin-mock'
+export default defineConfig(({ command }) => {
+  return {
+    plugins: [
+      viteMockServe({
+        mockPath: 'mock',
+        localEnabled: command === 'serve', // 保证开发阶段可以使用mock接口
+      }),
+    ],
+  }
+})
+```
+
+在根目录创建mock文件夹:去创建我们需要mock数据与接口！！！
+
+在mock文件夹内部创建一个user.ts文件
+
+```ts
+// 返回一个数组，数组里面包含两个用户信息
+function createUserList() {
+  return [
+    {
+      userId: 1,
+      avatar:
+        'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+      username: 'admin',
+      password: '111111',
+      desc: '平台管理员',
+      roles: ['平台管理员'],
+      buttons: ['cuser.detail'],
+      routes: ['home'],
+      token: 'Admin Token',
+    },
+    {
+      userId: 2,
+      avatar:
+        'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+      username: 'system',
+      password: '111111',
+      desc: '系统管理员',
+      roles: ['系统管理员'],
+      buttons: ['cuser.detail', 'cuser.user'],
+      routes: ['home'],
+      token: 'System Token',
+    },
+  ]
+}
+
+// 对外暴露一个数组：数组里面包含两个接口“登录接口”和“获取用户信息的接口”
+export default [
+  // 用户登录接口
+  {
+    url: '/api/user/login',//请求地址
+    method: 'post',//请求方式
+    response: ({ body }) => {
+      //获取请求体携带过来的用户名与密码
+      const { username, password } = body;
+      //调用获取用户信息函数,用于判断是否有此用户
+      const checkUser = createUserList().find(
+        (item) => item.username === username && item.password === password,
+      )
+      //没有用户返回失败信息
+      if (!checkUser) {
+        return { code: 201, data: { message: '账号或者密码不正确' } }
+      }
+      //如果有返回成功信息
+      const { token } = checkUser
+      return { code: 200, data: { token } }
+    },
+  },
+  // 获取用户信息
+  {
+    url: '/api/user/info',
+    method: 'get',
+    response: (request) => {
+      //获取请求头携带token
+      const token = request.headers.token;
+      //查看用户信息是否包含有次token用户
+      const checkUser = createUserList().find((item) => item.token === token)
+      //没有返回失败的信息
+      if (!checkUser) {
+        return { code: 201, data: { message: '获取用户信息失败' } }
+      }
+      //如果有返回成功信息
+      return { code: 200, data: { checkUser } }
+    },
+  },
+]
+```
+
+- 安装axios并测试
+
+```bash
+$ pnpm i axios
+```
+
+最后通过axios测试接口！！！
+
+- main.ts
+
+```ts
+import axios from 'axios'
+axios({
+  url: '/api/user/login',
+  method: "post",
+  data: {
+    username: "admin",
+    password: "111111"
+  }
+})
+```
+
+
+
+## 9、axios二次封装
+
+在开发项目的时候避免不了与后端进行交互,因此我们需要使用axios插件实现发送网络请求。在开发项目的时候
+
+我们经常会把axios进行二次封装。
+
+目的:
+
+1:使用请求拦截器，可以在请求拦截器中处理一些业务(开始进度条、请求头携带公共参数)
+
+2:使用响应拦截器，可以在响应拦截器中处理一些业务(进度条结束、简化服务器返回的数据、处理http网络错误)
+
+在根目录下创建src/utils/request.ts
+
+```ts
+// 进行axios二次封装：使用请求与响应拦截器
+import axios from "axios";
+import { ElMessage } from "element-plus";
+
+// 第一步：利用axios对象的craete方法，去创建axios实例（其他的配置：基础路径、超时的时间等待）
+// 创建axios实例
+let request = axios.create({
+  baseURL: import.meta.env.VITE_APP_BASE_API, // 配置基础路径，基础路径上会携带 /api
+  timeout: 5000 // 超时的时间的设置
+})
+
+// 第二步：request实例添加请求与响应拦截器
+// 请求拦截器
+request.interceptors.request.use(config => {
+  // config配置对象，headers属性请求头，经常给服务器端携带公共参数
+
+  // 返回配置对象
+  return config;
+});
+// 响应拦截器
+request.interceptors.response.use((response) => {
+  return response.data;
+}, (error) => {
+  // 处理网络错误
+  let msg = '';
+  let status = error.response.status;
+  switch (status) {
+    case 401:
+      msg = "token过期";
+      break;
+    case 403:
+      msg = '无权访问';
+      break;
+    case 404:
+      msg = "请求地址错误";
+      break;
+    case 500:
+      msg = "服务器出现问题";
+      break;
+    default:
+      msg = "无网络";
+
+  }
+  ElMessage({
+    type: 'error',
+    message: msg
+  })
+  return Promise.reject(error);
+});
+export default request;
+```
+
+## 10、API接口统一管理
+
+在开发项目的时候,接口可能很多需要统一管理。在src目录下去创建api文件夹去统一管理项目的接口；
+
+比如：下面方式
+
+```ts
+//统一管理咱们项目用户相关的接口
+
+import request from '@/utils/request'
+
+import type {
+
+ loginFormData,
+
+ loginResponseData,
+
+ userInfoReponseData,
+
+} from './type'
+
+//项目用户相关的请求地址
+
+enum API {
+
+ LOGIN_URL = '/admin/acl/index/login',
+
+ USERINFO_URL = '/admin/acl/index/info',
+
+ LOGOUT_URL = '/admin/acl/index/logout',
+
+}
+//登录接口
+export const reqLogin = (data: loginFormData) =>
+ request.post<any, loginResponseData>(API.LOGIN_URL, data)
+//获取用户信息
+
+export const reqUserInfo = () =>
+
+ request.get<any, userInfoReponseData>(API.USERINFO_URL)
+
+//退出登录
+
+export const reqLogout = () => request.post<any, any>(API.LOGOUT_URL)
+```
+
+贾成豪老师代码仓库地址:https://gitee.com/jch1011/vue3_admin_template-bj1.git
+
+项目在线文档:
+
+服务器域名:http://sph-api.atguigu.cn
+
+swagger文档:
+
+http://139.198.104.58:8209/swagger-ui.html
+
+http://139.198.104.58:8212/swagger-ui.html#/
+
+echarts:国内镜像网站
+
+https://www.isqqw.com/echarts-doc/zh/option.html#title
+
+http://datav.aliyun.com/portal/school/atlas/area_selector
