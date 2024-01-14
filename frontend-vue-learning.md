@@ -55,7 +55,7 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
 
 # Vue3实战项目
 
-【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=43&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=52&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 # 创建Vue2工程
 
