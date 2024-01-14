@@ -72,6 +72,10 @@ echarts:国内镜像网站
 https://www.isqqw.com/echarts-doc/zh/option.html#title
 http://datav.aliyun.com/portal/school/atlas/area_selector
 
+接口登录：[POST](http://139.198.104.58:8212/swagger-ui.html#!/index45controller/loginUsingPOST) [/admin/acl/index/login](http://139.198.104.58:8212/swagger-ui.html#!/index45controller/loginUsingPOST)
+
+admin/atguigu
+
 # 创建Vue2工程
 
 ## 1、安装Vue Cli 5.x
