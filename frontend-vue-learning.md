@@ -53,9 +53,24 @@ https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce
 
 - 订单支付页面需要用有收货地址的账号（13700000000/111111）
 
+后台文档swagger地址:
+
+http://39.98.123.211:8170/swagger-ui.html
+
+http://39.98.123.211:8510/swagger-ui.html#/
+
 # Vue3实战项目
 
 【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=52&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+
+服务器域名:http://sph-api.atguigu.cn
+swagger文档:
+http://139.198.104.58:8209/swagger-ui.html
+http://139.198.104.58:8212/swagger-ui.html#/
+
+echarts:国内镜像网站
+https://www.isqqw.com/echarts-doc/zh/option.html#title
+http://datav.aliyun.com/portal/school/atlas/area_selector
 
 # 创建Vue2工程
 
