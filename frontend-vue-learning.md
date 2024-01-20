@@ -26,6 +26,10 @@ https://www.bilibili.com/video/BV1Za4y1r7KE?p=71&vd_source=b850b3a29a70c8eb888ce
 
 【Vue2脚手架】https://cli.vuejs.org/zh/
 
+【Vue3中文官网】https://cn.vuejs.org/guide/introduction.html
+
+Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/breaking-changes/
+
 【谷粒商城】
 
 https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
@@ -61,7 +65,7 @@ http://39.98.123.211:8510/swagger-ui.html#/
 
 # Vue3实战项目
 
-【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=52&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5?p=76&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 服务器域名:http://sph-api.atguigu.cn
 swagger文档:
@@ -163,10 +167,6 @@ $ vue inspect > output.js
 # Vue3
 
 <img src="https://user-images.githubusercontent.com/499550/93624428-53932780-f9ae-11ea-8d16-af949e16a09f.png" style="width:200px" />
-
-【Vue3中文官网】https://cn.vuejs.org/guide/introduction.html
-
-Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/breaking-changes/
 
 ## 1.Vue3简介
 

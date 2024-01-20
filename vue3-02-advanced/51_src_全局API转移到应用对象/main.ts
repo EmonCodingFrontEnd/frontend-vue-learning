@@ -19,6 +19,7 @@ declare module 'vue' {
 
 // 自定义指令
 app.directive('beauty', (element, binding) => {
+  // 这会在 `mounted` 和 `updated` 时都调用
   element.innerText += binding.value;
   element.style.color = 'green';
   element.style.backgroundColor = 'skyblue';
