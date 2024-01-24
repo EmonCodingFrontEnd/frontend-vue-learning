@@ -65,7 +65,7 @@ http://39.98.123.211:8510/swagger-ui.html#/
 
 # Vue3实战项目
 
-【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5?p=76&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=86&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 服务器域名:http://sph-api.atguigu.cn
 swagger文档:
