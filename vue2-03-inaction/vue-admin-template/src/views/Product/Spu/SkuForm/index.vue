@@ -181,7 +181,7 @@ export default {
      * 选择图片触发事件
      * selection 是spuImageList的子集，由选中的元素组成
      * [{id,imgName,imgUrl,spuId}]
-     * 需要注意：比其skuInfo.skuImageList想要的数据，还缺少isDefault字段。
+     * 需要注意：比起skuInfo.skuImageList想要的数据，还缺少isDefault字段。
      */
     handleSelectionChange(selection) {
       this.skuImageList = selection;
