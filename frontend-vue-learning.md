@@ -65,7 +65,7 @@ http://39.98.123.211:8510/swagger-ui.html#/
 
 # Vue3实战项目
 
-【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=114&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=121&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 服务器域名:http://sph-api.atguigu.cn
 swagger文档:
@@ -78,7 +78,7 @@ http://datav.aliyun.com/portal/school/atlas/area_selector
 
 接口登录：[POST](http://139.198.104.58:8212/swagger-ui.html#!/index45controller/loginUsingPOST) [/admin/acl/index/login](http://139.198.104.58:8212/swagger-ui.html#!/index45controller/loginUsingPOST)
 
-admin/atguigu123
+admin/atguigu123/111111
 
 # 创建Vue2工程
 
