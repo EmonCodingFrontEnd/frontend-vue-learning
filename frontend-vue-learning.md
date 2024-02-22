@@ -34,6 +34,8 @@ Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/break
 
 https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
+https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+
 # 前端框架
 
 - 前端UI框架
@@ -65,7 +67,7 @@ http://39.98.123.211:8510/swagger-ui.html#/
 
 # Vue3实战项目
 
-【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=128&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+【硅谷甄选】https://www.bilibili.com/video/BV1Xh411V7b5/?p=142&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 服务器域名:http://sph-api.atguigu.cn
 swagger文档:
