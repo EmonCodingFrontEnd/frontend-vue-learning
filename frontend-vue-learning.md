@@ -32,9 +32,11 @@ Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/break
 
 【谷粒商城】
 
-https://www.bilibili.com/video/BV1zB4y1K7by?p=37&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
-
 https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
+
+【小程序】
+
+https://www.bilibili.com/video/BV1LF4m1E7kB/?p=9&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
 
 # 前端框架
 
