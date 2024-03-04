@@ -30,10 +30,6 @@ https://www.bilibili.com/video/BV1Za4y1r7KE?p=71&vd_source=b850b3a29a70c8eb888ce
 
 Vue2迁移到Vue3的非兼容性改变：https://v3-migration.vuejs.org/zh/breaking-changes/
 
-【谷粒商城】
-
-https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
-
 【小程序】
 
 https://www.bilibili.com/video/BV1LF4m1E7kB/?p=9&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1
