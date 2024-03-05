@@ -327,7 +327,7 @@ export default {
     },
     cancel() {
       this.$emit("changeScene", { scene: 0, isAdd: false });
-      // 清理数据
+      // 清理数据，重置表单特殊用法
       /**
        * Object.assign()  ES6提供的方法，将一个或者多个源对象中所有可枚举的自有属性复制到目标对象，并返回修改后的目标对象。
        * 第一个参数是目标对象，后面的一个到多个是源对象。
