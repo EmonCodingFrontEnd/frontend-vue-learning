@@ -4,6 +4,7 @@
     <h2>学生姓名：{{ name }}</h2>
     <h2>学生性别：{{ sex }}</h2>
     <h2>学生年龄：{{ myAge + 1 }}</h2>
+    <h2>学生身高：{{ height }}</h2>
     <button @click="updateAge">尝试修改收到的年龄</button>
   </div>
 </template>
@@ -46,6 +47,12 @@ export default {
     sex: {
       type: String,
       required: true,
+    },
+    height: {
+      type: Number,
+      default() {
+        return 1.75;
+      },
     },
   },
 };
