@@ -9,7 +9,7 @@
 
         <!-- 跳转路由并携带params参数，to的对象写法【推荐】 -->
         <router-link
-          :to="{
+            :to="{
             name: 'xiangqing', // 使用params时无法使用path参数
             params: {
               id: item.id,
@@ -23,7 +23,7 @@
         <button @click="replaceShow(item)">replace查看</button>
       </li>
     </ul>
-    <hr />
+    <hr/>
     <router-view></router-view>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
   data() {
     return {
       messageList: [
-        { id: "001", title: "消息001" },
-        { id: "002", title: "消息002" },
-        { id: "003", title: "消息003" },
+        {id: "001", title: "消息001"},
+        {id: "002", title: "消息002"},
+        {id: "003", title: "消息003"},
       ],
     };
   },
@@ -49,6 +49,17 @@ export default {
           title: item.title,
         },
       });
+
+      // router.push 只能当前窗口打开
+      // router.resolve 结合 window.open 可以新窗口打开
+      // let routerUrl = this.$router.resolve({
+      //   path: "xiangqing",
+      //   params: {
+      //     id: item.id,
+      //     title: item.title,
+      //   },
+      // })
+      // window.open(routerUrl.href, "_blank");
     },
     replaceShow() {
       this.$router.replace({
