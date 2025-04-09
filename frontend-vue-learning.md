@@ -51,6 +51,13 @@ https://www.bilibili.com/video/BV1LF4m1E7kB/?p=9&spm_id_from=pageDriver&vd_sourc
       - Ant Design Vue https://www.antdv.com/docs/vue/introduce-cn/
       - Vant
 
+# Node版本
+
+### 环境准备
+
+- node v18.20.8
+- pnpm 10.8.0
+
 # Vue2实战项目
 
 【尚品汇】https://www.bilibili.com/video/BV1Vf4y1T7bw/?p=200&spm_id_from=pageDriver&vd_source=b850b3a29a70c8eb888ce7dff776a5d1 【完结】
@@ -536,12 +543,7 @@ https://pinia.web3doc.top/
 
 ## 2、项目初始化
 
-### 2.1、环境准备
-
-- node v16.14.2+
-- pnpm 8.0.0+
-
-### 2.2、创建项目
+### 2.1、创建项目
 
 ```bash
 $ pnpm create vite
@@ -570,7 +572,7 @@ Done. Now run:
 },
 ```
 
-### 2.3、配置vite-plugin-vue-setup-extend
+### 2.2、配置vite-plugin-vue-setup-extend
 
 扩展setup插件，支持在script标签中使用name属性
 
